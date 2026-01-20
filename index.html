@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+
+    <link
+      rel="icon"
+      href="media/site_icon/portfolio_favicon_1.png"
+      type="image/png"
+    />
+
+    <!-- ***************Bootstrap CSS *************-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <!-- ************Bootstrap Icons **************** -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <!-- ************Playfair Font **************** -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Urbanist Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Epilogue Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ***********AOS (Animate on Scroll) CSS CDN Link*********** -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- ************Custom Stylesheet **************** -->
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <!-- ***********Navbar Section **************** -->
+    <!-- ***********Navbar Section **************** -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-brand">
+        <a class="brand-name global-gradient-text" href="#home"
+          >Dubby
+          <img src="media/site_icon/portfolio_favicon_1.png" title="dubby_icon"
+        /></a>
+      </div>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+      <ul class="nav-ul" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- ***********Hero Section **************** -->
+    <!-- ***********Hero Section **************** -->
+    <header class="hero" id="home">
+      <div class="container hero-container" id="heroContent">
+        <div class="row justify-content-center gx-4 d-flex">
+          <div
+            class="hero-content col-xl-6 col-lg-7 col-7"
+            data-aos="fade-right"
+            data-aos-delay="100"
+          >
+            <h1 class="global-gradient-text">
+              Hey there. Welcome to my professional portfolio!
+            </h1>
+
+            <p class="sub-title">
+              I'm Chidubem, a passionate full stack developer based in Nigeria.
+              I specialize in building clean, user-friendly and interactive web,
+              mobile and desktop applications.
+            </p>
+            <a href="#projects" class="btn global-gradient-buttonbg"
+              >View My Work</a
+            >
+          </div>
+
+          <div
+            class="col-xl-6 col-lg-5 col-5 hero-image-container"
+            data-aos="fade-left"
+            data-aos-delay="100"
+          >
+            <img src="media/profile/profile_pic.png" title="dubby_image" />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ***********Skills Section **************** -->
+    <!-- ***********Skills Section **************** -->
+
+    <section
+      class="skills-section"
+      data-aos="fade-up"
+      data-aos-delay="200"
+      id="skills"
+    >
+      <h2 class="skills-title">MY SKILLS</h2>
+      <div class="mansory-container" id="skillsSection"></div>
+    </section>
+
+    <!-- ***********Projects Section **************** -->
+    <!-- ***********Projects Section **************** -->
+    <section
+      class="projects-section"
+      data-aos="fade-up"
+      data-aos-delay="200"
+      id="projects"
+    >
+      <h2>MY PROJECTS</h2>
+      <div class="projects-container">
+        <div class="row d-flex gap-4 justify-content-center mini">
+          <div class="col-sm-12 col-md-6 col-xl-3 col-lg-6 project-card">
+            <img
+              src="media/projects_snapshots/90's_visuals_project.png"
+              alt="90's visuals project"
+              title="90's visuals project"
+            />
+            <div class="description">
+              <h3>90s Visuals Concept</h3>
+              <p>
+                A high-end digital presence for a professional photographer,
+                focusing on a minimalist, "analog-soul" aesthetic.
+              </p>
+              <a
+                href="https://dubem-star.github.io/90s-VISUALS/"
+                target="_blank"
+                class="btn global-gradient-buttonbg"
+                >View Project</a
+              >
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-xl-3 col-lg-6 project-card">
+            <img
+              src="media/projects_snapshots/dubby_quizz_app.png"
+              alt="Dubby's Quizz App"
+              title="Dubby's Quizz App"
+            />
+
+            <div class="description">
+              <h3>Dubby's Quizz App</h3>
+              <p>
+                An interactive, multi-stage educational application designed to
+                test and track user knowledge.
+              </p>
+              <a
+                href="https://dubem-star.github.io/quizz-app/"
+                class="btn global-gradient-buttonbg"
+                >View Project</a
+              >
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-xl-3 col-lg-6 project-card">
+            <img
+              src="media/projects_snapshots/todo_list_screenshot.png"
+              alt="to-do-list-app"
+              title="to-do-list-app"
+            />
+            <div class="description">
+              <h3>To-do list app</h3>
+              <p>
+                A productivity tool designed to help users organize daily tasks
+                with a focus on simplicity and efficiency.
+              </p>
+              <a
+                href="https://dubem-star.github.io/to-do-list-app/"
+                class="btn global-gradient-buttonbg"
+                target="_blank"
+                >View Project</a
+              >
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-xl-3 col-lg-6 project-card">
+            <img
+              src="media/projects_snapshots/sworv_shop_page.png"
+              alt="90's visuals project"
+              title="90's visuals project"
+            />
+
+            <div class="description">
+              <h3>Sworv Clothings</h3>
+              <p>
+                A full-scale digital storefront for an emerging clothing brand,
+                Sworv Clothings.
+              </p>
+              <a
+                href="https://sworv-ng.onrender.com/"
+                class="btn global-gradient-buttonbg"
+                target="_blank"
+                >View Project</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="about"
+      class="about-section"
+      data-aos="fade-up"
+      data-aos-delay="200"
+    >
+      <h2>About Me</h2>
+      <div class="about-content">
+        <img src="pic.jpg" alt="Dubem profile pic" class="about-img" />
+        <div class="about-text">
+          <p>
+            I'm Chidubem, a recent Computer Information Systems graduate and
+            passionate web developer in training. I specialize in building
+            clean, user-friendly websites and interactive web apps. My journey
+            began with a Udemy web development course and an internship at an
+            electricity company, where I gained valuable real-world tech
+            exposure.
+          </p>
+          <p>
+            I enjoy working with JavaScript, HTML, and CSS, and I’m currently
+            diving deep into Flexbox, Grid, and media queries to level up before
+            learning Bootstrap.
+          </p>
+          <p>
+            So far, I’ve built a To-Do List App with drag-and-drop support and
+            localStorage, and a Quiz App with multi-page navigation, answer
+            tracking, and score calculation. When I’m not coding, you’ll find me
+            sketching out new app ideas or exploring the latest UI/UX design
+            trends.
+          </p>
+          <p>
+            Feel free to explore my portfolio to see what I’ve been working on.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="contact"
+      class="contact-section"
+      data-aos="fade-up"
+      data-aos-delay="200"
+    >
+      <h2>Contact Me</h2>
+      <form class="contact-form">
+        <input type="text" name="name" placeholder="Your Name:" required />
+        <input type="email" name="email" placeholder="Your Email:" required />
+        <textarea
+          type="message"
+          name="message"
+          placeholder="Your Message:"
+          required
+        ></textarea>
+        <button class="btn" type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <footer id="footer" class="footer">
+      <p>Copyright © 2025 Chukwulozie Chidubem</p>
+      <a href="#home">Back to Top ↑</a>
+    </footer>
+
+    <!-- ******************Scripts*********************** -->
+    <script src="scripts.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
