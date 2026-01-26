@@ -10,7 +10,8 @@
 :root {
   --container-width: 95%;
   --columns: 3;
-  --gap: 16px;
+  --gap: 20px;
+  --gap-2: 30px;
   --columns-2: 2;
 }
 
@@ -18,7 +19,6 @@
 /*******************Global Gradient********************/
 .global-gradient-text {
   background: linear-gradient(to right, #ffffff, #00b894);
-  /* background: linear-gradient(to right, #a8a8a8, #00b894); */
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
@@ -26,7 +26,6 @@
 
 .nav-ul li a.global-gradient-navlink {
   background: linear-gradient(to right, #ffffff, #00b894);
-  /* background: linear-gradient(to right, #a8a8a8, #00b894); */
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
@@ -42,6 +41,8 @@
 
 html {
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -49,24 +50,33 @@ body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-family: "Epilogue", serif;
+  padding: 0;
 }
 
 /******************* Navbar Section ********************/
 /******************* Navbar Section ********************/
 .navbar {
-  position: sticky;
+  position: sticky !important;
   top: 0;
   z-index: 1000;
-  background: linear-gradient(to right, #1c1c1c, #2c3e50);
+  /* background: linear-gradient(to right, #1c1c1c, #2c3e50); */
+  background-image: url("media/idk_2.png");
+  /* background-image: url("media/blue_wallpaper.png"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #010722;
   color: azure;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 30px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0);
+  /* box-sizing: border-box; */
+  border-bottom: 1px solid transparent;
   transition:
     box-shadow 0.3s ease-in-out,
     border-bottom-color 0.3s ease-in-out;
+  /* height: 85px; */
 }
 
 .navbar.smooth-bottom {
@@ -76,18 +86,12 @@ body {
 
 .brand-name {
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 400;
   font-size: 30px;
 }
 
 .brand-name img {
   width: 25px;
-}
-
-.nav-brand {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #1c1c1c;
 }
 
 .hamburger {
@@ -99,16 +103,17 @@ body {
   display: flex;
   margin: 0;
   padding: 0;
-  gap: 20px;
+  gap: 35px;
 }
 
 .nav-ul li a {
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 400;
   color: white;
   transition: color 0.3s ease-in-out;
   position: relative;
   padding-bottom: 2px;
+  font-size: 18px;
 }
 
 .nav-ul li a:hover {
@@ -134,11 +139,30 @@ body {
 /******************* Hero Section ********************/
 
 .hero {
-  height: 600px;
-  background: linear-gradient(to right, #1c1c1c, #2c3e50);
+  min-height: 100vh;
+  /* background: linear-gradient(to right, #1c1c1c, #2c3e50); */
+  /* background-image: url("media/hero_wallpaper.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
   color: white;
-  padding: 40px 20px 20px 20px;
+  padding: 50px 20px 80px 20px;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
   overflow: hidden;
+}
+
+.hero .hero-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero .container {
+  min-height: 100%;
 }
 
 .hero .container .hero-content {
@@ -151,15 +175,14 @@ body {
 .hero-content h1 {
   font-weight: bold;
   text-align: left;
-  font-size: clamp(35px, 3.5vw, 60px) !important;
+  font-size: clamp(48px, 3.5vw, 60px) !important;
 }
 
 .hero-content .sub-title {
   text-align: left;
   color: rgb(146, 145, 145);
-  /* font-size: 16px; */
-  font-size: clamp(0.9rem, 1.5vw, 1.1rem) !important;
-  margin-top: 10px;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  margin: 15px 0 30px 0;
 }
 
 .hero-image-container {
@@ -171,18 +194,10 @@ body {
 }
 
 .hero-image-container img {
-  /* width: 70%; */
-  /* width: 450px; */
-  width: clamp(300px, 35vw, 450px) !important;
+  width: clamp(250px, 30vw, 380px);
   aspect-ratio: 1/1;
-  /* object-fit: contain; */
-  border-radius: 15px;
-  border: 2px solid #00b894;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
+  border-radius: 20px;
+  /* border: 2px solid #00b894; */
 }
 
 .hero p {
@@ -190,18 +205,21 @@ body {
   margin-bottom: 25px;
 }
 
-.btn {
+.hero .btn {
   color: white;
-  padding: 10px 20px;
+  padding: 10px 15px;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
+  font-weight: 600;
+  border-radius: 10px;
+  width: clamp(110px, 15vw, 155px);
+  font-size: clamp(13px, 1.5vw, 16px);
+  box-sizing: border-box;
 }
 
 /******************* Skills Section ********************/
 /******************* Skills Section ********************/
 .skills-section {
-  padding: 60px 20px;
+  padding: 90px 20px 60px 20px;
 }
 
 .mansory-container {
@@ -388,22 +406,13 @@ body {
   padding-right: 15px;
   box-sizing: border-box;
   color: rgb(146, 145, 145);
-  /* height: 60px; */
   height: clamp(60px, 5vh, 100px);
 }
 
 .project-card .description a {
   padding: 5px 7px;
   font-weight: 400;
-  /* position: absolute;
-  bottom: 0; */
 }
-
-/* .projects-container .project-card:last-child .description a {
-  padding: 5px 10px;
-  font-weight: 400;
-  margin-top: 20px;
-} */
 
 /******************* About Section ********************/
 /******************* About Section ********************/
@@ -500,7 +509,11 @@ body {
   text-align: center;
 }
 
+/******************* Responsiveness Section ********************/
+/******************* Responsiveness Section ********************/
+
 @media (max-width: 1200px) {
+  /******************* Hero Section ********************/
   .hero {
     padding-top: 70px;
   }
@@ -509,18 +522,16 @@ body {
     max-width: 95% !important;
     margin: 0 auto !important;
   }
-  /* 
-  .hero .container .hero-content {
-    padding-right: 30px !important;
-  } */
 
+  /******************* Skills Section ********************/
   .skill-box-wrapper {
     width: calc(
       (100% / var(--columns-2)) -
-        (var(--gap) * (var(--columns-2) - 1) / var(--columns-2))
+        (var(--gap-2) * (var(--columns-2) - 1) / var(--columns-2))
     );
   }
 
+  /******************* Projects Section ********************/
   .projects-container .mini {
     gap: 40px !important;
   }
@@ -533,27 +544,54 @@ body {
   .project-card img {
     height: auto;
   }
-}
 
-@media (max-width: 968px) {
-  .projects-container .mini {
-    gap: 28px !important;
+  .hero {
+    /* height: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
+  .nav-ul li a {
+    font-size: 16px;
+  }
+
+  .projects-container .mini {
+    gap: 28px !important;
+  }
+
+  .mansory-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    display: block;
+  }
+
+  /******************* Navbar Section ********************/
+
+  /* .navbar {
+    border-bottom: 3px solid black;
+  } */
+
+  .brand-name {
+    font-size: 25px;
+  }
+
   .hamburger {
     display: block;
     font-size: 1.8rem;
     cursor: pointer;
-    color: #1c1c1c;
+    color: #00b894;
     background: none;
     transition: color 0.3s ease;
   }
 
-  .hamburger:hover {
-    color: #00b894;
-  }
+  /* slide-in-nav */
   .nav-ul {
     display: none;
     flex-direction: column;
@@ -571,9 +609,64 @@ body {
   .nav-ul.show {
     display: flex;
   }
+
+  /******************* Hero Section ********************/
+  /* 
+  body {
+    background-color: #3498db;
+  } */
+
+  .hero {
+    padding: 70px 0 80px 0;
+  }
+
+  .hero .mini {
+    gap: 70px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(40px, 7vw, 48px) !important;
+  }
+
+  .hero-content .sub-title {
+    font-size: clamp(14px, 2.5vw, 16px);
+    margin-bottom: 35px;
+    padding-right: 50px;
+  }
+
+  .hero-image-container img {
+    width: clamp(200px, 45vw, 500px);
+  }
+
+  .hero .btn {
+    width: clamp(100px, 25vw, 155px);
+    font-size: clamp(13px, 2.5vw, 16px);
+    padding: 10px 5px;
+    font-weight: 500;
+  }
+
+  /******************* Skill-box Section ********************/
+
+  .skill-box-wrapper {
+    width: 80%;
+  }
+
+  .mansory-container {
+    height: auto !important;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
 }
 
 @media (max-width: 576px) {
+  .skills-section {
+    padding: 90px 5px 60px 5px;
+  }
+
+  .skill-box-wrapper {
+    width: 95%;
+  }
+
   .project-card {
     width: 90%;
   }

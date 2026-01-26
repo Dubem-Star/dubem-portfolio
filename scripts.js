@@ -17,6 +17,7 @@ const skills = [
       "JavaScript (ES6+ fundamentals, DOM manipulation, events, timing)",
       "React (components, props, state, hooks, conditional rendering)",
     ],
+    dataset: "frontend",
   },
 
   {
@@ -29,6 +30,7 @@ const skills = [
       "Basic data relationships",
       "LocalStorage (client-side persistence)",
     ],
+    dataset: "databases",
   },
 
   {
@@ -43,6 +45,7 @@ const skills = [
       "Server-side form handling and validation",
       "Asynchronous Programming (Promises, async/await)",
     ],
+    dataset: "backend",
   },
 
   {
@@ -55,6 +58,7 @@ const skills = [
       "Postman (API testing)",
       "Environment configuration (dotenv, config setup)",
     ],
+    dataset: "tools",
   },
 
   {
@@ -66,6 +70,7 @@ const skills = [
       "Layout consistency and spacing",
       "Smooth user interactions and feedback",
     ],
+    dataset: "UI/UX",
   },
 
   {
@@ -77,6 +82,7 @@ const skills = [
       "Attention to detail",
       "Comfortable debugging complex UI behavior",
     ],
+    dataset: "Engineering",
   },
 ];
 
@@ -92,8 +98,6 @@ window.addEventListener("scroll", () => {
   const isAtTop = heroSection.getBoundingClientRect().top <= 86;
 
   navbar.classList.toggle("smooth-bottom", isAtTop);
-  // console.log(backendCard.offsetHeight);
-  // console.log(toolsCard.offsetHeight);
 });
 
 // ****************Scroll Navlink Logic**********************
@@ -132,7 +136,7 @@ for (let skill of skills) {
 
   skillBox.innerHTML = `
 
-  <div class="skill-box">
+  <div class="skill-box" data-skill=${skill.dataset}>
   
   <div class="skill-box-icon">
   <img src=${skill.icon} />
@@ -165,18 +169,16 @@ ${skill.capabilities
   skillsSection.appendChild(skillBox);
 }
 
-// window.onload(() => {
-const backendCard = document.querySelector(
-  ".skill-box-wrapper:nth-child(3) .skill-box",
-);
-
-const toolsCard = document.querySelector(
-  ".skill-box-wrapper:nth-child(4) .skill-box",
-);
-
-const frontendCard = document.querySelector(
-  ".skill-box-wrapper:nth-child(1) .skill-box",
-);
+const frontendCard = document.querySelector("[data-skill='frontend']");
+const backendCard = document.querySelector("[data-skill='backend']");
+const backendCardPlaceholder = backendCard.innerHTML;
+const backendSkill = backendCardPlaceholder;
+const toolsCard = document.querySelector("[data-skill='tools']");
+const toolsCardPlaceholder = toolsCard.innerHTML;
+const toolSkill = toolsCardPlaceholder;
+const databaseCard = document.querySelector("[data-skill='databases']");
+const databaseCardPlaceholder = databaseCard.innerHTML;
+const databaseSkill = databaseCardPlaceholder;
 
 const desktopContHeight =
   backendCard.offsetHeight + toolsCard.offsetHeight + 40 + 16 + 80 + 80;
@@ -187,27 +189,42 @@ const mobileContHeight =
   backendCard.offsetHeight +
   frontendCard.offsetHeight +
   toolsCard.offsetHeight +
-  40 +
-  16 +
+  30 +
   80 +
   150;
 
-if (window.innerWidth <= 1200) {
-  skillsSection.style.height = mobileContHeight + "px";
-  console.log(mobileContHeight);
+// **********THE MOST POWERFULL FUNCTION EVER*****************
+
+function DubbyScaler() {
+  const isDesktop = window.innerWidth > 1200;
+  const isMedium = window.innerWidth > 767 && window.innerWidth <= 1200;
+  const isMobile = window.innerWidth <= 767;
+
+  if (isDesktop) {
+    toolsCard.innerHTML = toolSkill;
+    backendCard.innerHTML = backendSkill;
+  }
+
+  skillsSection.style.height = isMedium
+    ? `${mobileContHeight + "px"}`
+    : `${desktopContHeight + "px"}`;
+
+  if (isMedium) {
+    if (toolsCard && backendCard) {
+      toolsCard.innerHTML = isMedium ? backendCardPlaceholder : toolSkill;
+
+      backendCard.innerHTML = isMedium ? toolsCardPlaceholder : backendSkill;
+
+      databaseCard.innerHTML = databaseSkill;
+    }
+  }
+
+  if (isMobile) {
+    databaseCard.innerHTML = isMobile ? backendSkill : databaseSkill;
+    backendCard.innerHTML = isMobile ? databaseSkill : backendSkill;
+    toolsCard.innerHTML = toolSkill;
+  }
 }
 
-window.addEventListener("resize", () => {
-  if (window.innerWidth <= 1200) {
-    skillsSection.style.height = mobileContHeight + "px";
-    console.log(mobileContHeight);
-  } else {
-    skillsSection.style.height = desktopContHeight + "px";
-  }
-});
-
-// console.log(contHeight);
-// console.log(backendCard.offsetHeight);
-// console.log(toolsCard.offsetHeight);
-// console.log(frontendCard.offsetHeight);
-// });
+DubbyScaler();
+window.addEventListener("resize", DubbyScaler);
