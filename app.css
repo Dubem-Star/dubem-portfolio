@@ -1,6 +1,20 @@
 /*******************Global Classes********************/
 /*******************Global Classes********************/
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Epilogue", serif;
+  text-align: center;
+  position: relative;
+  scroll-padding: 120px;
+}
+
 :root {
   --primary-gradient: linear-gradient(135deg, #1c1c1c 0%, #2c3e50 100%);
   --accent-color: #3498db;
@@ -17,8 +31,10 @@
 
 /*******************Global Gradient********************/
 /*******************Global Gradient********************/
+
 .global-gradient-text {
   background: linear-gradient(to right, #ffffff, #00b894);
+
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
@@ -27,7 +43,6 @@
 .nav-ul li a.global-gradient-navlink {
   background: linear-gradient(to right, #ffffff, #00b894);
   color: transparent;
-  -webkit-background-clip: text;
   background-clip: text;
 }
 
@@ -36,47 +51,80 @@
 }
 
 .global-gradient-buttonbg {
-  background: linear-gradient(to right, #a8a8a8, #00b894);
+  background: linear-gradient(to right, #72928b, #00b894);
+  box-shadow:
+    inset 0 1px 1px rgba(176, 224, 230, 0.3),
+    0 0 15px rgba(76, 80, 184, 0.4);
 }
 
-html {
-  scroll-behavior: smooth;
-  margin: 0;
-  padding: 0;
-}
+/*******************Back-to-top Button********************/
+/*******************Back-to-top Button********************/
 
-body {
-  text-align: center;
-  margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-family: "Epilogue", serif;
-  padding: 0;
-}
-
-/******************* Navbar Section ********************/
-/******************* Navbar Section ********************/
-.navbar {
-  position: sticky !important;
-  top: 0;
-  z-index: 1000;
-  /* background: linear-gradient(to right, #1c1c1c, #2c3e50); */
-  background-image: url("media/idk_2.png");
-  /* background-image: url("media/blue_wallpaper.png"); */
-  background-repeat: no-repeat;
+.btt-container {
+  position: fixed;
+  bottom: 70px;
+  right: 45px;
+  z-index: 2000;
+  width: 50px;
+  aspect-ratio: 1/1;
+  padding: 10px;
+  background-image: url("media/backgrounds/idk_2.png");
   background-size: cover;
+  border-radius: 50%;
+  display: flex;
+  opacity: 0;
+  transition:
+    opacity 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
+  visibility: hidden;
+}
+
+.btt-container img {
+  width: 100%;
+}
+
+.btt-container.show {
+  opacity: 1;
+  cursor: pointer;
+  visibility: visible;
+}
+
+.btt-container:hover {
+  transform: scale(1.1);
+}
+
+/************************************ Navbar Section *************************************/
+/************************************ Navbar Section *************************************/
+
+.nav-overall {
+  top: -1px;
+  z-index: 1000;
+  position: sticky;
+  width: 100%;
+}
+
+.nav-overall::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background-image: url("media/backgrounds/idk_2.png");
+  background-repeat: no-repeat;
   background-position: center;
-  background-color: #010722;
+  z-index: -1;
+}
+
+.navbar {
   color: azure;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 30px;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
   border-bottom: 1px solid transparent;
   transition:
     box-shadow 0.3s ease-in-out,
     border-bottom-color 0.3s ease-in-out;
-  /* height: 85px; */
+  overflow: visible !important;
 }
 
 .navbar.smooth-bottom {
@@ -135,13 +183,11 @@ body {
   height: 2px;
 }
 
-/******************* Hero Section ********************/
-/******************* Hero Section ********************/
+/************************************ Hero Section *************************************/
+/************************************ Hero Section *************************************/
 
 .hero {
   min-height: 100vh;
-  /* background: linear-gradient(to right, #1c1c1c, #2c3e50); */
-  /* background-image: url("media/hero_wallpaper.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
@@ -149,7 +195,9 @@ body {
   position: relative;
   width: 100%;
   box-sizing: border-box;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero .hero-background {
@@ -170,12 +218,15 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  /* padding-right: 20px;
+  box-sizing: border-box; */
 }
 
 .hero-content h1 {
   font-weight: bold;
   text-align: left;
   font-size: clamp(48px, 3.5vw, 60px) !important;
+  padding-right: 15px;
 }
 
 .hero-content .sub-title {
@@ -183,13 +234,14 @@ body {
   color: rgb(146, 145, 145);
   font-size: clamp(0.9rem, 1.5vw, 1rem);
   margin: 15px 0 30px 0;
+  padding-right: 100px;
 }
 
 .hero-image-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  /* overflow: hidden; */
   border-radius: 15px;
 }
 
@@ -197,7 +249,9 @@ body {
   width: clamp(250px, 30vw, 380px);
   aspect-ratio: 1/1;
   border-radius: 20px;
-  /* border: 2px solid #00b894; */
+  box-shadow:
+    inset 0 1px 1px rgba(176, 224, 230, 0.3),
+    0 0 35px rgba(76, 80, 184, 0.4);
 }
 
 .hero p {
@@ -207,17 +261,29 @@ body {
 
 .hero .btn {
   color: white;
-  padding: 10px 15px;
+  padding: 13px 10px;
   text-decoration: none;
   font-weight: 600;
-  border-radius: 10px;
-  width: clamp(110px, 15vw, 155px);
-  font-size: clamp(13px, 1.5vw, 16px);
+  border-radius: 13px;
+  width: clamp(140px, 15vw, 170px);
+  font-size: clamp(14px, 1.5vw, 17px);
   box-sizing: border-box;
+  transition: transform 0.2s ease-in-out;
+  border: 1px solid rgb(198, 198, 198);
 }
 
-/******************* Skills Section ********************/
-/******************* Skills Section ********************/
+.hero .btn:hover {
+  transform: scale(1.1);
+}
+
+.page-wrapper {
+  max-width: 1259px;
+  max-width: clamp(1259px, 100vw, 1700px);
+  margin: 0 auto;
+}
+
+/************************************ Skills Section *************************************/
+/************************************ Skills Section *************************************/
 .skills-section {
   padding: 90px 20px 60px 20px;
 }
@@ -255,10 +321,6 @@ body {
 
 .skill-box {
   border: 1px solid #2c3e50;
-  /* width: calc(
-    (100% / var(--columns)) -
-      (var(--gap) * (var(--columns) - 1) / var(--columns))
-  ); */
   padding: 20px 20px 0 20px;
   gap: 20px;
   display: flex;
@@ -278,6 +340,7 @@ body {
   bottom: -3px;
   opacity: 0;
   background: linear-gradient(to right, #a8a8a8, #00b894);
+
   border-radius: 15px;
   z-index: -1;
   transform: translateZ(-1px);
@@ -302,7 +365,6 @@ body {
 }
 
 .skill-box .skill-box-icon img {
-  /* inset: 0; */
   width: 100%;
 }
 
@@ -343,22 +405,31 @@ body {
   flex-shrink: 0;
 }
 
-/******************* Projects Section ********************/
-/******************* Projects Section ********************/
+/************************************ Projects Section *************************************/
+/************************************ Projects Section *************************************/
 .projects-section {
-  padding: 60px 20px 100px 20px;
-  background-color: #f5f5f5;
+  padding: 90px 20px 100px 20px;
+  background-image: url(media/backgrounds/white_background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   text-align: center;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .projects-section h2 {
   font-size: 2.5rem;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   color: #2c3e50;
 }
 
 .projects-container {
-  width: 100% !important;
+  max-width: clamp(1259px, 100vw, 1700px);
   margin: 0 auto !important;
   display: flex;
   justify-content: center;
@@ -366,6 +437,8 @@ body {
 
 .projects-container .mini {
   justify-content: center;
+  row-gap: 20px;
+  column-gap: 20px;
 }
 
 .project-card {
@@ -373,15 +446,24 @@ body {
   padding: 0 !important;
   width: 23%;
   flex-shrink: 0;
-  aspect-ratio: 1/1;
   position: relative;
 }
 
-.project-card img {
+.project-card .img-cont {
   width: 100%;
   height: 180px;
-  border-radius: 12px;
-  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.603);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.project-card .img-cont img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease-in-out;
+}
+
+.project-card .img-cont:hover img {
+  transform: scale(1.1);
 }
 
 .project-card .description {
@@ -389,14 +471,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  /* height: ; */
 }
 
 .project-card .description h3 {
-  font-size: 22px;
+  font-size: 20px;
   margin: 0;
   font-weight: 700;
+  color: #2c3e50;
 }
 
 .project-card .description p {
@@ -405,52 +486,90 @@ body {
   margin: 10px 0 20px 0 !important;
   padding-right: 15px;
   box-sizing: border-box;
-  color: rgb(146, 145, 145);
+  color: rgb(120, 120, 120);
   height: clamp(60px, 5vh, 100px);
 }
 
-.project-card .description a {
-  padding: 5px 7px;
-  font-weight: 400;
+.project-card .description .btn {
+  padding: 6px 10px;
+  font-weight: 500;
+  color: white;
+  border-radius: 10px;
+  transition: transform 0.2s ease-in-out;
+  /* background-image: url("media/backgrounds/idk_2.png"); */
+  background: #2c3e50;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-/******************* About Section ********************/
-/******************* About Section ********************/
+.project-card .description a:hover {
+  transform: scale(1.1);
+}
+
+/************************************ About Section *************************************/
+/************************************ About Section *************************************/
+
 .about-section {
-  padding: 60px 20px;
-  background-color: #ffffff;
+  padding: 110px 20px 100px 20px !important;
   color: #2c3e50;
   text-align: center;
 }
 
 .about-section h2 {
   font-size: 2.5rem;
-  margin-bottom: 40px;
+  margin-bottom: 45px;
+  text-transform: uppercase;
 }
 
 .about-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 30px;
+  justify-content: center;
+  gap: 60px;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-.about-img {
-  width: 150px;
+.about-content .img-wrapper {
+  width: 200px;
+  aspect-ratio: 1/1;
   border-radius: 50%;
+  align-self: flex-start;
+  position: relative;
+  /* overflow: hidden; */
+  position: relative;
+}
+
+.about-content .img-wrapper::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  bottom: -8px;
+  width: 100%;
+  height: 100%;
+  background-color: #2c3e50;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.about-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
 }
 
 .about-text {
   max-width: 600px;
   text-align: left;
-  line-height: 1.6;
+  line-height: 2;
   font-size: 1rem;
 }
 
+/************************************ Contact Section *************************************/
+/************************************ Contact Section *************************************/
 .contact-section {
   padding: 60px 20px;
   background-color: #f5f5f5;
@@ -461,6 +580,7 @@ body {
   font-size: 2.5rem;
   margin-bottom: 30px;
   color: #2c3e50;
+  text-transform: uppercase;
 }
 
 .contact-form {
@@ -509,13 +629,23 @@ body {
   text-align: center;
 }
 
-/******************* Responsiveness Section ********************/
-/******************* Responsiveness Section ********************/
+/************************************ Responsiveness Section *************************************/
+/************************************ Responsiveness Section *************************************/
+
+@media (min-width: 1600px) {
+  .hero {
+    min-height: 600px;
+  }
+}
 
 @media (max-width: 1200px) {
   /******************* Hero Section ********************/
   .hero {
     padding-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 800px;
   }
 
   .hero .hero-container {
@@ -534,6 +664,8 @@ body {
   /******************* Projects Section ********************/
   .projects-container .mini {
     gap: 40px !important;
+    row-gap: 70px !important;
+    column-gap: 30px !important;
   }
 
   .project-card {
@@ -544,22 +676,16 @@ body {
   .project-card img {
     height: auto;
   }
-
-  .hero {
-    /* height: 100vh; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 }
 
 @media (max-width: 968px) {
-  .nav-ul li a {
-    font-size: 16px;
+  .hero .hero-container {
+    max-width: 99% !important;
+    margin: 0 auto !important;
   }
 
-  .projects-container .mini {
-    gap: 28px !important;
+  .nav-ul li a {
+    font-size: 16px;
   }
 
   .mansory-container {
@@ -573,10 +699,6 @@ body {
   }
 
   /******************* Navbar Section ********************/
-
-  /* .navbar {
-    border-bottom: 3px solid black;
-  } */
 
   .brand-name {
     font-size: 25px;
@@ -611,10 +733,6 @@ body {
   }
 
   /******************* Hero Section ********************/
-  /* 
-  body {
-    background-color: #3498db;
-  } */
 
   .hero {
     padding: 70px 0 80px 0;

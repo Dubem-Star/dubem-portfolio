@@ -95,7 +95,7 @@ hamburger.addEventListener("click", () => {
 // ****************Scroll Navbar Shadow Logic**********************
 // ****************Scroll Navbar Shadow Logic**********************
 window.addEventListener("scroll", () => {
-  const isAtTop = heroSection.getBoundingClientRect().top <= 86;
+  const isAtTop = heroSection.getBoundingClientRect().top <= 75;
 
   navbar.classList.toggle("smooth-bottom", isAtTop);
 });
@@ -108,7 +108,7 @@ window.addEventListener("scroll", () => {
   sections.forEach((section) => {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.clientHeight;
-    if (scrollY >= sectionTop - sectionHeight / 3)
+    if (scrollY >= sectionTop - sectionHeight / 5)
       current = section.getAttribute("id");
   });
 
@@ -117,7 +117,7 @@ window.addEventListener("scroll", () => {
       "global-gradient-navlink",
       "global-gradient-navlink-borderbottom",
     );
-    if (link.getAttribute("href") === `#${current}`) {
+    if (link.getAttribute("href") === `${current}`) {
       link.classList.add(
         "global-gradient-navlink",
         "global-gradient-navlink-borderbottom",
@@ -125,6 +125,19 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+
+for (let link of navLinks) {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const id = link.getAttribute("href");
+    const section = document.getElementById(id);
+    window.scrollTo({
+      top: section.offsetTop - 35,
+      behavior: "smooth",
+    });
+  });
+}
 
 // ****************Skills Section Logic**********************
 // ****************Skills Section Logic**********************
@@ -189,15 +202,15 @@ const mobileContHeight =
   backendCard.offsetHeight +
   frontendCard.offsetHeight +
   toolsCard.offsetHeight +
-  30 +
-  80 +
+  10 +
+  40 +
   150;
 
 // **********THE MOST POWERFULL FUNCTION EVER*****************
 
 function DubbyScaler() {
   const isDesktop = window.innerWidth > 1200;
-  const isMedium = window.innerWidth > 767 && window.innerWidth <= 1200;
+  const isMedium = window.innerWidth >= 767 && window.innerWidth <= 1200;
   const isMobile = window.innerWidth <= 767;
 
   if (isDesktop) {
@@ -228,3 +241,17 @@ function DubbyScaler() {
 
 DubbyScaler();
 window.addEventListener("resize", DubbyScaler);
+
+const bttCont = document.querySelector(".btt-container");
+bttCont.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
+window.addEventListener("scroll", () => {
+  const isBottom = window.scrollY >= 1000;
+
+  bttCont.classList.toggle("show", isBottom);
+});
