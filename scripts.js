@@ -259,6 +259,7 @@ bttCont.addEventListener("click", () => {
 
 window.addEventListener("scroll", () => {
   const isBottom = window.scrollY >= 1000;
+  const isScreenCalm = window.innerWidth >= 968;
 
-  bttCont.classList.toggle("show", isBottom);
+  bttCont.classList.toggle("show", isBottom && isScreenCalm);
 });

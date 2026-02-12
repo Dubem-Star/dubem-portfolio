@@ -13,6 +13,7 @@ body {
   text-align: center;
   position: relative;
   scroll-padding: 120px;
+  background-color: #010729;
 }
 
 :root {
@@ -89,13 +90,6 @@ body {
   opacity: 1;
   cursor: pointer;
   visibility: visible;
-}
-
-.btt-container:hover {
-  transform: scale(1.1);
-  box-shadow:
-    inset 0 1px 1px rgba(176, 224, 230, 0.3),
-    0 0 35px rgba(76, 80, 184, 0.4);
 }
 
 /*******************SECTION TITLE STYLING ********************/
@@ -197,13 +191,6 @@ body {
   font-size: 18px;
 }
 
-.nav-ul li a:hover {
-  background: linear-gradient(to right, #ffffff, #00b894);
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
 .nav-ul li a::before {
   content: "";
   position: absolute;
@@ -224,7 +211,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
-  padding: 50px 20px 80px 20px;
+  padding: 50px 20px 120px 20px;
   position: relative;
   width: 100%;
   box-sizing: border-box;
@@ -306,14 +293,15 @@ body {
   border: 1px solid rgb(198, 198, 198);
 }
 
-.hero .btn:hover {
-  transform: scale(1.1);
-}
-
 .page-wrapper {
   max-width: 1259px;
   max-width: clamp(1259px, 100vw, 1700px);
   margin: 0 auto;
+  background: white;
+}
+
+.nav-p-w {
+  background: none;
 }
 
 /************************************ Skills Section *************************************/
@@ -324,7 +312,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 40px;
+  /* margin-top: 40px; */
+  background-color: white;
 }
 
 .mansory-container {
@@ -354,6 +343,22 @@ body {
   border-radius: 15px;
 }
 
+.skill-box-wrapper::before {
+  content: "";
+  inset: 0;
+  position: absolute;
+  left: -3px;
+  bottom: -3px;
+  opacity: 0;
+  background: linear-gradient(to right, #a8a8a8, #00b894);
+  border-radius: 15px;
+  z-index: -1;
+  transform: translateZ(-1px);
+  transition:
+    transform 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+}
+
 .skill-box {
   border: 1px solid #2c3e50;
   padding: 30px;
@@ -370,37 +375,11 @@ body {
 
 .skill-box .skill-background {
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   inset: 0;
   width: 100%;
   height: 100%;
   border-radius: 15px;
-}
-
-.skill-box-wrapper::before {
-  content: "";
-  inset: 0;
-  position: absolute;
-  left: -3px;
-  bottom: -3px;
-  opacity: 0;
-  background: linear-gradient(to right, #a8a8a8, #00b894);
-
-  border-radius: 15px;
-  z-index: -1;
-  transform: translateZ(-1px);
-  transition:
-    transform 0.2s ease-in-out,
-    opacity 0.2s ease-in-out;
-}
-
-.skill-box-wrapper:hover::before {
-  opacity: 1;
-  transform: translate(-5px, 5px) translateZ(-1px);
-}
-
-.skill-box-wrapper:hover {
-  transform: translate(5px, -5px);
 }
 
 .skill-box .skill-box-icon {
@@ -414,6 +393,8 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
 }
 
 .skill-box .skill-box-icon img {
@@ -427,16 +408,18 @@ body {
   margin: 0 auto;
   color: #2c3e50;
   font-weight: 700;
+  position: relative;
+  z-index: 2;
 }
 
 .skill-box .skill-box-description {
   margin-top: 10px;
   line-height: 1.7;
-  /* color: #2c3e50; */
   color: #6d6a6a;
   font-weight: 500;
   font-size: 16px;
-  /* font-size: clamp(14px, 1.2vw, 16px); */
+  position: relative;
+  z-index: 2;
 }
 
 /************************************ Projects Section *************************************/
@@ -495,10 +478,6 @@ body {
   transition: transform 0.2s ease-in-out;
 }
 
-.project-card .img-cont:hover img {
-  transform: scale(1.1);
-}
-
 .project-card .description {
   margin-top: 30px;
   display: flex;
@@ -534,10 +513,6 @@ body {
   background: #2c3e50;
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-.project-card .description a:hover {
-  transform: scale(1.1);
 }
 
 /************************************ About Section *************************************/
@@ -594,20 +569,21 @@ body {
   position: absolute;
   left: -8px;
   bottom: -8px;
-
   width: 100%;
   height: 100%;
   background-color: #2c3e50;
-  z-index: -1;
+  z-index: 1;
   border-radius: 50%;
 }
 
-.about-img {
+.about-content .img-wrapper .about-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
   align-self: start;
+  position: relative;
+  z-index: 3;
 }
 
 .about-content .about-text {
@@ -627,15 +603,16 @@ body {
 /************************************ Contact Section *************************************/
 .contact-section {
   padding: 60px 20px 85px 20px;
-  /* background-color: #f5f5f5; */
+  background-color: #f5f5f5;
   text-align: center;
   position: relative;
   border-top: 1px solid rgba(212, 212, 212, 0.571);
+  z-index: 1;
 }
 
 .contact-section .contact-background {
   position: absolute;
-  z-index: -1;
+  z-index: 2;
   inset: 0;
   width: 100%;
   height: 100%;
@@ -647,6 +624,11 @@ body {
   margin-bottom: 30px;
   color: #2c3e50;
   text-transform: uppercase;
+  z-index: 3;
+}
+
+.contact-section p {
+  z-index: 3;
 }
 
 .contact-form {
@@ -655,6 +637,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  z-index: 3;
 }
 
 .contact-form input,
@@ -664,6 +647,7 @@ body {
   border: 1px solid #ccc;
   border-radius: 8px;
   resize: none;
+  z-index: 3;
 }
 
 .contact-form input:focus,
@@ -671,6 +655,7 @@ body {
   outline: none;
   border-color: #00b894;
   box-shadow: 0 0 0 2px rgba(0, 184, 148, 0.2);
+  z-index: 3;
 }
 
 .contact-form button {
@@ -683,13 +668,7 @@ body {
   transition:
     background-color 0.3s ease,
     transform 0.2s ease-in-out;
-}
-
-.contact-form .btn:hover {
-  background-color: #019875;
-  color: white;
-
-  transform: scale(1.1);
+  z-index: 3;
 }
 
 .footer {
@@ -703,26 +682,68 @@ body {
   align-items: center;
   gap: 30px;
 }
+@media (hover: hover) and (pointer: fine) {
+  .btt-container:hover {
+    transform: scale(1.1);
+    box-shadow:
+      inset 0 1px 1px rgba(176, 224, 230, 0.3),
+      0 0 35px rgba(76, 80, 184, 0.4);
+  }
 
-.footer .social-links {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
+  .nav-ul li a:hover {
+    background: linear-gradient(to right, #ffffff, #00b894);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .hero .btn:hover {
+    transform: scale(1.1);
+  }
+
+  .footer .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .footer .social-links img {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 50%;
+    /* background-color: #010729; */
+
+    border: 1px solid rgba(212, 212, 212, 0.571);
+    cursor: pointer;
+  }
+
+  /************************************ Responsiveness Section *************************************/
+  /************************************ Responsiveness Section *************************************/
+
+  .skill-box-wrapper:hover::before {
+    opacity: 1;
+    transform: translate(-5px, 5px) translateZ(-1px);
+  }
+
+  .skill-box-wrapper:hover {
+    transform: translate(5px, -5px);
+  }
+
+  .project-card .img-cont:hover img {
+    transform: scale(1.1);
+  }
+
+  .project-card .description a:hover {
+    transform: scale(1.1);
+  }
+
+  .contact-form .btn:hover {
+    background-color: #019875;
+    color: white;
+    transform: scale(1.1);
+  }
 }
-
-.footer .social-links img {
-  width: 50px;
-  height: 50px;
-  padding: 10px;
-  border-radius: 50%;
-  /* background-color: #010729; */
-
-  border: 1px solid rgba(212, 212, 212, 0.571);
-  cursor: pointer;
-}
-
-/************************************ Responsiveness Section *************************************/
-/************************************ Responsiveness Section *************************************/
 
 @media (min-width: 1600px) {
   .hero {
@@ -750,17 +771,6 @@ body {
   .mansory-container {
     width: 95vw;
   }
-
-  /******************* Projects Section ********************/
-
-  /* .project-card {
-    width: 45%;
-    margin-bottom: 25px;
-  }
-
-  .project-card img {
-    height: auto;
-  } */
 }
 
 @media (max-width: 1100px) {
@@ -811,7 +821,7 @@ body {
   .about-content .about-text {
     order: 1 !important;
     text-align: center;
-    width: 85%;
+    width: 100%;
     max-width: 850px;
   }
 
@@ -824,6 +834,11 @@ body {
     margin: 0 auto;
     /* width: 80%; */
   }
+
+  /* .btt-container {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  } */
 }
 
 @media (max-width: 767px) {
