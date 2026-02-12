@@ -60,10 +60,10 @@
     <!-- ***********Navbar Section **************** -->
     <!-- ***********Navbar Section **************** -->
 
-    <div class="nav-overall">
+    <div class="nav-overall" id="navbar">
       <div class="page-wrapper">
-        <nav class="navbar" id="navbar">
-          <div class="nav-brand">
+        <nav class="navbar">
+          <div class="nav-brand" id="navBrand" data-home-page="home">
             <a class="brand-name global-gradient-text" href="#home"
               >Dubby
               <img
@@ -103,7 +103,10 @@
               I specialize in building clean, user-friendly and interactive web,
               mobile and desktop applications.
             </p>
-            <a href="#projects" class="btn global-gradient-buttonbg"
+            <a
+              href="projects"
+              id="viewProjectBtn"
+              class="btn global-gradient-buttonbg"
               >View My Work</a
             >
           </div>
@@ -129,7 +132,18 @@
         data-aos-delay="200"
         id="skills"
       >
-        <h2 class="skills-title">MY SKILLS</h2>
+        <h4
+          style="color: #2c3e50; font-size: 20px; font-weight: 700; margin: 0"
+          class="my-skills"
+        >
+          MY SKILLS
+        </h4>
+        <h2 class="section-title">WHAT I DELIVER</h2>
+        <p class="section-brief-intro">
+          How I can help you bring your next big idea to life, from the database
+          to the design.
+        </p>
+
         <div class="mansory-container" id="skillsSection"></div>
       </section>
 
@@ -141,7 +155,11 @@
         data-aos-delay="200"
         id="projects"
       >
-        <h2>MY PROJECTS</h2>
+        <h2 class="section-title">MY PROJECTS</h2>
+        <p class="section-brief-intro">
+          Check out some of the digital spaces I’ve built from the ground up,
+          where great ideas turn into nice digital experiences.
+        </p>
         <div class="projects-container">
           <div class="row d-flex justify-content-center mini">
             <div class="col-sm-12 col-md-6 col-xl-3 col-lg-6 project-card">
@@ -244,27 +262,36 @@
         data-aos="fade-up"
         data-aos-delay="200"
       >
-        <h2>About Me</h2>
+        <h2 class="section-title">About Me</h2>
+        <p class="section-brief-intro">
+          Just a developer who loves the logic of the backend and the creativity
+          of the frontend.
+        </p>
         <div class="about-content">
-          <div class="img-wrapper">
-            <img src="media/profile/selfie.png" class="about-img" />
+          <div class="overrall-image">
+            <div class="img-wrapper">
+              <img src="media/profile/selfie.png" class="about-img" />
+            </div>
           </div>
-
           <div class="about-text">
             <p>
-              I’m Chidubem, a passionate Web Developer who focuses on building
-              clean, functional, high performance and interactive digital
-              experiences. With a foundation built on real-world tech exposure
-              and a drive for continuous learning, I excel at turning complex
-              ideas into user-friendly websites.
+              I’m Chidubem, a Web Developer passionate about building
+              <strong>clean</strong>, <strong>functional</strong>, and
+              <strong>interactive</strong> digital experiences.
             </p>
+
+            <p>
+              With hands-on experience and a drive for continuous learning, I
+              turn complex ideas into maintainable, user-friendly websites.
+            </p>
+
+            <!-- I bridge aesthetic design and robust architecture, ensuring projects are as scalable under the hood as they are intuitive on the surface.
+Check out my portfolio to see what I’ve been building. -->
 
             <p>
               I bridge the gap between aesthetic design and robust architecture,
               ensuring that every project is as scalable under the hood as it is
-              intuitive on the surface. For me, web development isn't just about
-              making things work, it's about writing maintainable, efficient
-              code that stands the test of time.
+              intuitive on the surface.
             </p>
 
             <p>
@@ -277,11 +304,19 @@
 
       <section
         id="contact"
-        class="contact-section"
+        class="contact-section d-flex flex-column align-items-center"
         data-aos="fade-up"
         data-aos-delay="200"
       >
-        <h2>Contact Me</h2>
+        <img
+          class="contact-background"
+          src="media/backgrounds/white_background.jpg"
+        />
+        <h2 class="section-title">Contact Me</h2>
+        <p class="section-brief-intro">
+          Ready to get started? Feel free to reach out through the contact form,
+          let's build the future together
+        </p>
         <form class="contact-form">
           <input type="text" name="name" placeholder="Your Name:" required />
           <input type="email" name="email" placeholder="Your Email:" required />
@@ -291,12 +326,19 @@
             placeholder="Your Message:"
             required
           ></textarea>
-          <button class="btn" type="submit">Send Message</button>
+          <button class="btn global-gradient-buttonbg" type="submit">
+            Send Message
+          </button>
         </form>
       </section>
     </div>
 
     <footer id="footer" class="footer">
+      <div class="social-links">
+        <img src="media/site_icon/twitter.png" alt="twitter" />
+        <img src="media/site_icon/linkedin.png" alt="linkedIn" />
+        <img src="media/site_icon/github.png" alt="github" />
+      </div>
       <p>Copyright © 2025 Chukwulozie Chidubem</p>
     </footer>
 

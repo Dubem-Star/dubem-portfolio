@@ -75,7 +75,9 @@ body {
   opacity: 0;
   transition:
     opacity 0.2s ease-in-out,
-    transform 0.2s ease-in-out;
+    transform 0.2s ease-in-out,
+    visibility 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
   visibility: hidden;
 }
 
@@ -91,6 +93,31 @@ body {
 
 .btt-container:hover {
   transform: scale(1.1);
+  box-shadow:
+    inset 0 1px 1px rgba(176, 224, 230, 0.3),
+    0 0 35px rgba(76, 80, 184, 0.4);
+}
+
+/*******************SECTION TITLE STYLING ********************/
+/*******************SECTION TITLE STYLING ********************/
+
+.section-title {
+  text-align: center;
+  font-size: 45px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+.section-brief-intro {
+  text-align: center;
+  color: #8b8a8a;
+  margin-bottom: 40px;
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 50px;
+  max-width: 600px;
 }
 
 /************************************ Navbar Section *************************************/
@@ -101,6 +128,20 @@ body {
   z-index: 1000;
   position: sticky;
   width: 100%;
+  transition:
+    box-shadow 0.3s ease-in-out,
+    border-bottom-color 0.3s ease-in-out;
+  background-color: #010729;
+}
+
+.nav-overall.smooth-bottom {
+  border-bottom-color: rgba(255, 255, 255, 0.096);
+  box-shadow: 0 3px 20px 0 rgba(255, 255, 255, 0.1);
+  /* box-shadow: 0 5px 10px rgb(49, 47, 47); */
+}
+
+.nav-overall.dark-border {
+  box-shadow: 0 5px 10px rgb(49, 47, 47);
 }
 
 .nav-overall::before {
@@ -121,15 +162,7 @@ body {
   padding: 20px 30px;
   box-sizing: border-box;
   border-bottom: 1px solid transparent;
-  transition:
-    box-shadow 0.3s ease-in-out,
-    border-bottom-color 0.3s ease-in-out;
   overflow: visible !important;
-}
-
-.navbar.smooth-bottom {
-  border-bottom-color: rgba(255, 255, 255, 0.096);
-  box-shadow: 0 3px 20px 0 rgba(255, 255, 255, 0.1);
 }
 
 .brand-name {
@@ -198,6 +231,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 5px 10px rgb(49, 47, 47);
 }
 
 .hero .hero-background {
@@ -265,8 +299,8 @@ body {
   text-decoration: none;
   font-weight: 600;
   border-radius: 13px;
-  width: clamp(140px, 15vw, 170px);
-  font-size: clamp(14px, 1.5vw, 17px);
+  width: clamp(160px, 15vw, 180px);
+  font-size: clamp(16px, 1.5vw, 18px);
   box-sizing: border-box;
   transition: transform 0.2s ease-in-out;
   border: 1px solid rgb(198, 198, 198);
@@ -284,28 +318,27 @@ body {
 
 /************************************ Skills Section *************************************/
 /************************************ Skills Section *************************************/
+
 .skills-section {
-  padding: 90px 20px 60px 20px;
+  padding: 120px 20px 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
 }
 
 .mansory-container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: var(--container-width);
+  width: 90vw;
+  max-width: 1400px;
   gap: var(--gap);
   overflow: hidden;
   margin: 0 auto;
   box-sizing: border-box;
   padding: 10px;
-}
-
-.skills-section .skills-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: #2c3e50;
-  font-size: bolder;
+  margin-top: 15px;
 }
 
 .skill-box-wrapper {
@@ -317,19 +350,31 @@ body {
   transition: transform 0.2s ease-in-out;
   margin-bottom: 20px;
   flex-shrink: 0;
+  box-shadow: -5px 5px 10px rgba(49, 47, 47, 0.474);
+  border-radius: 15px;
 }
 
 .skill-box {
   border: 1px solid #2c3e50;
-  padding: 20px 20px 0 20px;
+  padding: 30px;
   gap: 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   border-radius: 15px;
-  background-color: white;
+  /* background-color: white; */
   box-sizing: border-box;
   flex-shrink: 0;
+  position: relative;
+}
+
+.skill-box .skill-background {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
 }
 
 .skill-box-wrapper::before {
@@ -359,60 +404,46 @@ body {
 }
 
 .skill-box .skill-box-icon {
-  width: 40px;
-  aspect-ratio: 1/1;
+  width: 60px;
+  height: 60px;
   margin: 0 auto;
+  /* padding: 20px; */
+  border-radius: 50%;
+  background-color: #2c3e50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .skill-box .skill-box-icon img {
-  width: 100%;
+  width: 55%;
+  height: 55%;
 }
 
 .skill-box h1 {
-  font-size: 23px;
+  /* font-size: 23px; */
+  font-size: clamp(21px, 1.5vw, 23px);
   margin: 0 auto;
   color: #2c3e50;
+  font-weight: 700;
 }
 
-.skill-box .skill-box-lists {
+.skill-box .skill-box-description {
   margin-top: 10px;
-}
-
-.skill-box .skill-box-lists ul {
-  padding-left: 2px;
-  display: flex;
-  flex-direction: column;
-}
-
-.skill-box .skill-box-lists ul li {
-  list-style: none;
-  margin-bottom: 8px;
-  text-align: left;
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-}
-
-.skill-box .skill-box-lists ul li .text {
-  font-size: 14px;
-  line-height: 1.5;
-  color: #2c3e50;
-}
-
-.skill-box .skill-box-lists ul li .bullet {
-  font-size: 25px;
-  line-height: 1;
-  flex-shrink: 0;
+  line-height: 1.7;
+  /* color: #2c3e50; */
+  color: #6d6a6a;
+  font-weight: 500;
+  font-size: 16px;
+  /* font-size: clamp(14px, 1.2vw, 16px); */
 }
 
 /************************************ Projects Section *************************************/
 /************************************ Projects Section *************************************/
 .projects-section {
   padding: 90px 20px 100px 20px;
-  background-image: url(media/backgrounds/white_background.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: #f5f5f5;
   text-align: center;
   width: 100vw;
   position: relative;
@@ -420,17 +451,15 @@ body {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-}
-
-.projects-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 50px;
-  color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .projects-container {
-  max-width: clamp(1259px, 100vw, 1700px);
-  margin: 0 auto !important;
+  max-width: 1280px;
+  width: 95%;
+  margin: 35px auto 0 auto !important;
   display: flex;
   justify-content: center;
 }
@@ -438,7 +467,8 @@ body {
 .projects-container .mini {
   justify-content: center;
   row-gap: 20px;
-  column-gap: 20px;
+  column-gap: clamp(10px, 2vw + 3px, 25px);
+  flex-wrap: nowrap;
 }
 
 .project-card {
@@ -451,9 +481,12 @@ body {
 
 .project-card .img-cont {
   width: 100%;
+  /* aspect-ratio: 1/1; */
   height: 180px;
-  border-radius: 15px;
+  border-radius: 20px;
   overflow: hidden;
+  /* border: 2px solid #2c3e50; */
+  box-shadow: 0 5px 10px rgba(49, 47, 47, 0.474);
 }
 
 .project-card .img-cont img {
@@ -474,20 +507,21 @@ body {
 }
 
 .project-card .description h3 {
-  font-size: 20px;
+  font-size: 23px;
   margin: 0;
   font-weight: 700;
   color: #2c3e50;
 }
 
 .project-card .description p {
-  font-size: 14px;
+  font-size: 16px;
   text-align: left;
   margin: 10px 0 20px 0 !important;
   padding-right: 15px;
   box-sizing: border-box;
   color: rgb(120, 120, 120);
-  height: clamp(60px, 5vh, 100px);
+  font-weight: 600;
+  /* height: clamp(60px, 5vh, 100px); */
 }
 
 .project-card .description .btn {
@@ -510,14 +544,17 @@ body {
 /************************************ About Section *************************************/
 
 .about-section {
-  padding: 110px 20px 100px 20px !important;
+  padding: 110px 20px 170px 20px !important;
   color: #2c3e50;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .about-section h2 {
   font-size: 2.5rem;
-  margin-bottom: 45px;
+  /* margin-bottom: 45px; */
   text-transform: uppercase;
 }
 
@@ -527,18 +564,29 @@ body {
   align-items: center;
   justify-content: center;
   gap: 60px;
+  width: 90%;
   max-width: 1000px;
-  margin: 0 auto;
+  align-items: stretch;
+  margin: 30px auto 0 auto;
+}
+
+.about-content .overrall-image {
+  align-items: flex-start;
+}
+
+.overrall-image {
+  width: 40%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .about-content .img-wrapper {
-  width: 200px;
+  width: 250px;
   aspect-ratio: 1/1;
   border-radius: 50%;
   align-self: flex-start;
   position: relative;
-  /* overflow: hidden; */
-  position: relative;
+  border: 1px solid #2c3e50;
 }
 
 .about-content .img-wrapper::before {
@@ -546,6 +594,7 @@ body {
   position: absolute;
   left: -8px;
   bottom: -8px;
+
   width: 100%;
   height: 100%;
   background-color: #2c3e50;
@@ -558,22 +607,39 @@ body {
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+  align-self: start;
 }
 
-.about-text {
-  max-width: 600px;
+.about-content .about-text {
+  width: 60%;
+  max-width: 700px;
   text-align: left;
   line-height: 2;
   font-size: 1rem;
+  font-weight: 600;
+}
+
+.about-content .about-text p {
+  margin-bottom: 30px !important;
 }
 
 /************************************ Contact Section *************************************/
 /************************************ Contact Section *************************************/
 .contact-section {
-  padding: 60px 20px;
-  background-color: #f5f5f5;
+  padding: 60px 20px 85px 20px;
+  /* background-color: #f5f5f5; */
   text-align: center;
+  position: relative;
+  border-top: 1px solid rgba(212, 212, 212, 0.571);
+}
+
+.contact-section .contact-background {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
 }
 
 .contact-section h2 {
@@ -584,7 +650,7 @@ body {
 }
 
 .contact-form {
-  max-width: 500px;
+  width: clamp(65%, 70vw, 85%) !important;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -614,19 +680,45 @@ body {
   border: none;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease-in-out;
 }
 
 .contact-form .btn:hover {
   background-color: #019875;
+  color: white;
+
+  transform: scale(1.1);
 }
 
 .footer {
   font-size: 0.9rem;
   padding: 35px;
   color: #ddcece;
-  background-color: #1c1c1c;
+  background-color: #010729;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.footer .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.footer .social-links img {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 50%;
+  /* background-color: #010729; */
+
+  border: 1px solid rgba(212, 212, 212, 0.571);
+  cursor: pointer;
 }
 
 /************************************ Responsiveness Section *************************************/
@@ -645,7 +737,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 800px;
+    /* min-height: 800px; */
+    min-height: 80svh;
   }
 
   .hero .hero-container {
@@ -654,27 +747,45 @@ body {
   }
 
   /******************* Skills Section ********************/
-  .skill-box-wrapper {
-    width: calc(
-      (100% / var(--columns-2)) -
-        (var(--gap-2) * (var(--columns-2) - 1) / var(--columns-2))
-    );
+  .mansory-container {
+    width: 95vw;
   }
 
   /******************* Projects Section ********************/
-  .projects-container .mini {
-    gap: 40px !important;
-    row-gap: 70px !important;
-    column-gap: 30px !important;
-  }
 
-  .project-card {
+  /* .project-card {
     width: 45%;
     margin-bottom: 25px;
   }
 
   .project-card img {
     height: auto;
+  } */
+}
+
+@media (max-width: 1100px) {
+  .projects-container .mini {
+    row-gap: 90px;
+
+    width: 100%;
+    column-gap: clamp(10px, 4vw + 4px, 45px);
+    flex-wrap: wrap;
+  }
+
+  .project-card {
+    width: 47%;
+    margin-bottom: 25px;
+  }
+
+  .project-card img {
+    height: auto;
+  }
+
+  .skill-box-wrapper {
+    width: calc(
+      (100% / var(--columns-2)) -
+        (var(--gap-2) * (var(--columns-2) - 1) / var(--columns-2))
+    );
   }
 }
 
@@ -691,11 +802,39 @@ body {
   .mansory-container {
     width: 100%;
   }
+
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-content .about-text {
+    order: 1 !important;
+    text-align: center;
+    width: 85%;
+    max-width: 850px;
+  }
+
+  .about-content .overrall-image {
+    order: 2 !important;
+    width: 100%;
+  }
+
+  .about-content .img-wrapper {
+    margin: 0 auto;
+    /* width: 80%; */
+  }
 }
 
 @media (max-width: 767px) {
+  .section-brief-intro {
+    max-width: clamp(55%, 70vw, 70%);
+    font-weight: 500;
+  }
+
   .hero {
     display: block;
+    min-height: 100vh;
   }
 
   /******************* Navbar Section ********************/
@@ -738,27 +877,36 @@ body {
     padding: 70px 0 80px 0;
   }
 
+  .hero .hero-container {
+    max-width: 90% !important;
+    margin: 0 auto !important;
+  }
+
   .hero .mini {
     gap: 70px;
   }
 
   .hero-content h1 {
-    font-size: clamp(40px, 7vw, 48px) !important;
+    font-size: clamp(45px, 7vw, 50px) !important;
+    padding-right: 0;
   }
 
   .hero-content .sub-title {
-    font-size: clamp(14px, 2.5vw, 16px);
+    font-size: clamp(15px, 2.5vw, 17px);
     margin-bottom: 35px;
     padding-right: 50px;
+    font-weight: 700;
   }
 
   .hero-image-container img {
-    width: clamp(200px, 45vw, 500px);
+    margin-top: 25px;
+    width: 100%;
+    aspect-ratio: 1/1;
   }
 
   .hero .btn {
-    width: clamp(100px, 25vw, 155px);
-    font-size: clamp(13px, 2.5vw, 16px);
+    width: clamp(135px, 25vw, 160px);
+    font-size: clamp(15px, 2.5vw, 17px);
     padding: 10px 5px;
     font-weight: 500;
   }
@@ -766,13 +914,59 @@ body {
   /******************* Skill-box Section ********************/
 
   .skill-box-wrapper {
-    width: 80%;
+    width: 100%;
   }
 
   .mansory-container {
     height: auto !important;
     flex-wrap: nowrap;
     align-items: center;
+  }
+
+  .projects-container {
+    width: 100%;
+  }
+
+  .contact-form {
+    width: clamp(65%, 85vw, 95%) !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .section-title {
+    font-size: clamp(35px, 6vw, 45px);
+  }
+
+  .my-skills {
+    font-weight: 600 !important;
+  }
+
+  .section-brief-intro {
+    max-width: clamp(55%, 85vw, 90%);
+    font-weight: 500;
+  }
+
+  .skill-box .skill-box-description {
+    font-weight: 600;
+  }
+
+  .skill-box h1 {
+    /* font-size: 23px; */
+    font-size: 23px;
+  }
+
+  .projects-container {
+    /* width: 90%; */
+    width: clamp(85%, 87vw, 100%);
+  }
+
+  .project-card {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .about-content .about-text {
+    width: 95%;
   }
 }
 
@@ -785,7 +979,11 @@ body {
     width: 95%;
   }
 
-  .project-card {
-    width: 90%;
+  .about-content .about-text {
+    width: 100%;
+  }
+
+  .contact-form {
+    width: clamp(65%, 95vw, 100%) !important;
   }
 }

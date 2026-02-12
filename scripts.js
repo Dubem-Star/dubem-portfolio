@@ -5,84 +5,63 @@ const navLinks = document.querySelectorAll(".nav-ul li a");
 const heroSection = document.getElementById("heroContent");
 const heroSectionContainer = document.getElementById("home");
 const navbar = document.getElementById("navbar");
+const skillsContainer = document.getElementById("skills");
+const navBrand = document.getElementById("navBrand");
+const viewProjectBtn = document.getElementById("viewProjectBtn");
 
 const skills = [
   {
-    icon: "media/skills_icons/frontend_development.png",
-    name: "Frontend Development",
-    capabilities: [
-      "HTML5 (semantic markup, accessibility-aware structure)",
-      "CSS3 (Flexbox, Grid, responsive layouts, media queries, animations)",
-      "Modern CSS techniques (clamp(), aspect-ratio, motion and interactions)",
-      "JavaScript (ES6+ fundamentals, DOM manipulation, events, timing)",
-      "React (components, props, state, hooks, conditional rendering)",
-    ],
-    dataset: "frontend",
+    icon: "media/skills_icons/full_stack.png",
+    name: "Full-Stack Web Applications ",
+    description:
+      "I build ready-to-use, end-to-end web platforms that bridge the gap between powerful backend logic and beautiful user interfaces that keeps your users engaged.",
+    dataset: "fullstack",
   },
 
   {
-    icon: "media/skills_icons/database_icon.png",
-    name: "Databases and Data Handling",
-    capabilities: [
-      "MongoDB (document-based database design)",
-      "Mongoose (schemas, models, queries)",
-      "Data validation and schema design",
-      "Basic data relationships",
-      "LocalStorage (client-side persistence)",
-    ],
-    dataset: "databases",
+    icon: "media/skills_icons/database_management.png",
+    name: "Database Management",
+    description:
+      "Designing  scalable, secure database structures that keep your data organized and ready to grow with your application.",
+
+    dataset: "database",
   },
 
   {
-    icon: "media/skills_icons/backend_development.png",
-    name: "Backend Development",
-    capabilities: [
-      "Node.js (server-side JavaScript)",
-      "Express.js (routing, middleware, request/response handling)",
-      "RESTful APIs (CRUD operations)",
-      "Authentication systems (signup/login, password hashing, sessions)",
-      "Authorization logic (protected routes, auth guards)",
-      "Server-side form handling and validation",
-      "Asynchronous Programming (Promises, async/await)",
-    ],
-    dataset: "backend",
+    icon: "media/skills_icons/secure_authentication.png",
+    name: "Secure Authentication",
+    description:
+      "Implementation of industry-standard authentication systems that protect user data and restrict access to sensitive areas.",
+
+    dataset: "secure_authentication",
   },
 
   {
-    icon: "media/skills_icons/tools_and_workflow.png",
-    name: "Tools and Workflow",
-    capabilities: [
-      "Git & GitHub (version control, pushing projects)",
-      "VS Code (extensions, debugging, integrated terminal)",
-      "npm (package management)",
-      "Postman (API testing)",
-      "Environment configuration (dotenv, config setup)",
-    ],
-    dataset: "tools",
+    icon: "media/skills_icons/tools_stack.png",
+    name: "Tool Stack",
+    description:
+      "I work with modern technologies like React and Node to build scalable applications using efficient, maintainable workflows.",
+
+    dataset: "tool_stack",
   },
 
   {
-    icon: "media/skills_icons/ui_ux_awareness.png",
-    name: "UI UX Awareness",
-    capabilities: [
-      "Responsive design thinking",
-      "Mobile-first considerations",
-      "Layout consistency and spacing",
-      "Smooth user interactions and feedback",
-    ],
-    dataset: "UI/UX",
+    icon: "media/skills_icons/responsive_layout.png",
+    name: "Responsive & Performance",
+
+    description:
+      "I create mobile-first, high-performance interfaces that look professional and run smoothly on every device.",
+
+    dataset: "responsive_layout",
   },
 
   {
-    icon: "media/skills_icons/engineering_mindset.png",
-    name: "Engineering Mindset",
-    capabilities: [
-      "Strong problem-solving skills",
-      "Willingness to learn deeply ",
-      "Attention to detail",
-      "Comfortable debugging complex UI behavior",
-    ],
-    dataset: "Engineering",
+    icon: "media/skills_icons/app_testing.png",
+    name: "Testing and Quality Assurance",
+    description:
+      "Rigorous testing and debugging applications to ensure stability, security, and a reliable user experience.",
+
+    dataset: "testing",
   },
 ];
 
@@ -94,10 +73,17 @@ hamburger.addEventListener("click", () => {
 
 // ****************Scroll Navbar Shadow Logic**********************
 // ****************Scroll Navbar Shadow Logic**********************
+
 window.addEventListener("scroll", () => {
-  const isAtTop = heroSection.getBoundingClientRect().top <= 75;
+  const isAtTop = heroSection.getBoundingClientRect().top <= 90;
+  const isAfterHero = skillsContainer.getBoundingClientRect().top <= 90;
 
   navbar.classList.toggle("smooth-bottom", isAtTop);
+  // if(isAfterHero){
+  //   navbar.classList.remove("smooth-bottom")
+
+  // }
+  navbar.classList.toggle("dark-border", isAfterHero);
 });
 
 // ****************Scroll Navlink Logic**********************
@@ -139,6 +125,31 @@ for (let link of navLinks) {
   });
 }
 
+// DUBBY CLICK FUNCTION***************************************
+// DUBBY CLICK FUNCTION***************************************
+function DubbyClick(e) {
+  e.preventDefault();
+
+  if (e.currentTarget === navBrand) {
+    const homePage = document.getElementById(navBrand.dataset.homePage);
+    window.scrollTo({
+      top: homePage.offsetTop - 86,
+      behavior: "smooth",
+    });
+  } else if (e.currentTarget === viewProjectBtn) {
+    const projectSection = document.getElementById(
+      viewProjectBtn.getAttribute("href"),
+    );
+    window.scrollTo({
+      top: projectSection.offsetTop - 35,
+      behavior: "smooth",
+    });
+  }
+}
+
+navBrand.addEventListener("click", DubbyClick);
+viewProjectBtn.addEventListener("click", DubbyClick);
+
 // ****************Skills Section Logic**********************
 // ****************Skills Section Logic**********************
 const skillsSection = document.getElementById("skillsSection");
@@ -146,11 +157,13 @@ const skillsSection = document.getElementById("skillsSection");
 for (let skill of skills) {
   const skillBox = document.createElement("div");
   skillBox.classList.add("skill-box-wrapper");
-
+  skillBox.dataset.service = skill.dataset;
   skillBox.innerHTML = `
 
-  <div class="skill-box" data-skill=${skill.dataset}>
-  
+  <div class="skill-box" >
+
+  <img class="skill-background" src="media/backgrounds/white_background.jpg"/>
+
   <div class="skill-box-icon">
   <img src=${skill.icon} />
   </div>
@@ -158,19 +171,9 @@ for (let skill of skills) {
 
 <h1>${skill.name}</h1>
 
-<div class="skill-box-lists" >
-<ul>
+<div class="skill-box-description" >
 
-${skill.capabilities
-  .map(
-    (item, index) =>
-      `
-  <li key="cap-${index}"> <span class ="bullet">•</span> <span class="text">${item}</span></li>
-  `,
-  )
-  .join("")}
-
-</ul>
+<p class="service-description"> ${skill.description}</p>
 </div>
 
   </div>
@@ -182,65 +185,68 @@ ${skill.capabilities
   skillsSection.appendChild(skillBox);
 }
 
-const frontendCard = document.querySelector("[data-skill='frontend']");
-const backendCard = document.querySelector("[data-skill='backend']");
-const backendCardPlaceholder = backendCard.innerHTML;
-const backendSkill = backendCardPlaceholder;
-const toolsCard = document.querySelector("[data-skill='tools']");
-const toolsCardPlaceholder = toolsCard.innerHTML;
-const toolSkill = toolsCardPlaceholder;
-const databaseCard = document.querySelector("[data-skill='databases']");
-const databaseCardPlaceholder = databaseCard.innerHTML;
-const databaseSkill = databaseCardPlaceholder;
+const fullStackCard = document.querySelector("[data-service='fullstack']");
+const databaseCard = document.querySelector("[data-service='database']");
+const testingCard = document.querySelector("[data-service='testing']");
 
 const desktopContHeight =
-  backendCard.offsetHeight + toolsCard.offsetHeight + 40 + 16 + 80 + 80;
-
+  fullStackCard.offsetHeight + databaseCard.offsetHeight + 40 + 16 + 150;
 skillsSection.style.height = desktopContHeight + "px";
 
-const mobileContHeight =
-  backendCard.offsetHeight +
-  frontendCard.offsetHeight +
-  toolsCard.offsetHeight +
-  10 +
-  40 +
-  150;
+function setInitialContHeight() {
+  const isMedium = window.innerWidth >= 767 && window.innerWidth <= 1100;
 
-// **********THE MOST POWERFULL FUNCTION EVER*****************
-
-function DubbyScaler() {
-  const isDesktop = window.innerWidth > 1200;
-  const isMedium = window.innerWidth >= 767 && window.innerWidth <= 1200;
-  const isMobile = window.innerWidth <= 767;
-
-  if (isDesktop) {
-    toolsCard.innerHTML = toolSkill;
-    backendCard.innerHTML = backendSkill;
-  }
+  const mediumContHeight =
+    fullStackCard.offsetHeight +
+    databaseCard.offsetHeight +
+    testingCard.offsetHeight +
+    10 +
+    40 +
+    180;
 
   skillsSection.style.height = isMedium
-    ? `${mobileContHeight + "px"}`
+    ? `${mediumContHeight + "px"}`
     : `${desktopContHeight + "px"}`;
-
-  if (isMedium) {
-    if (toolsCard && backendCard) {
-      toolsCard.innerHTML = isMedium ? backendCardPlaceholder : toolSkill;
-
-      backendCard.innerHTML = isMedium ? toolsCardPlaceholder : backendSkill;
-
-      databaseCard.innerHTML = databaseSkill;
-    }
-  }
-
-  if (isMobile) {
-    databaseCard.innerHTML = isMobile ? backendSkill : databaseSkill;
-    backendCard.innerHTML = isMobile ? databaseSkill : backendSkill;
-    toolsCard.innerHTML = toolSkill;
-  }
 }
 
-DubbyScaler();
-window.addEventListener("resize", DubbyScaler);
+// **********DUBBY'S LIVE HEIGHT READER FUNCTIONN*****************
+// **********DUBBY'S LIVE HEIGHT READER FUNCTIONN*****************
+
+function DubbysliveHeightReader() {
+  const isDesktop = window.innerWidth > 1200;
+  const isMedium = window.innerWidth >= 767 && window.innerWidth <= 1100;
+  const isMobile = window.innerWidth <= 767;
+
+  const currentTestingCard = document.querySelector("[data-service='testing']");
+  const currentfullStackCard = document.querySelector(
+    "[data-service='fullstack']",
+  );
+  const currentdatabaseCard = document.querySelector(
+    "[data-service='database']",
+  );
+
+  const currentMediumContHeight =
+    currentdatabaseCard.offsetHeight +
+    currentfullStackCard.offsetHeight +
+    currentTestingCard.offsetHeight +
+    10 +
+    40 +
+    100;
+
+  const currentDesktopContHeight =
+    currentfullStackCard.offsetHeight +
+    currentdatabaseCard.offsetHeight +
+    40 +
+    16 +
+    150;
+
+  skillsSection.style.height = isMedium
+    ? `${currentMediumContHeight + "px"}`
+    : `${currentDesktopContHeight + "px"}`;
+}
+setInitialContHeight();
+// liveHeightReader();
+window.addEventListener("resize", DubbysliveHeightReader);
 
 const bttCont = document.querySelector(".btt-container");
 bttCont.addEventListener("click", () => {
@@ -248,6 +254,7 @@ bttCont.addEventListener("click", () => {
     top: 0,
     behavior: "smooth",
   });
+  console.log("CLICK");
 });
 
 window.addEventListener("scroll", () => {
