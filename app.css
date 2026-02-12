@@ -227,7 +227,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
+  z-index: 1;
 }
 
 .hero .container {
@@ -241,6 +241,8 @@ body {
   align-items: flex-start;
   /* padding-right: 20px;
   box-sizing: border-box; */
+  position: relative;
+  z-index: 2;
 }
 
 .hero-content h1 {
@@ -264,6 +266,8 @@ body {
   align-items: center;
   /* overflow: hidden; */
   border-radius: 15px;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-image-container img {
@@ -682,6 +686,24 @@ body {
   align-items: center;
   gap: 30px;
 }
+
+.footer .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.footer .social-links img {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 212, 212, 0.571);
+  cursor: pointer;
+}
+
+/************************************ Responsiveness Section *************************************/
+/************************************ Responsiveness Section *************************************/
 @media (hover: hover) and (pointer: fine) {
   .btt-container:hover {
     transform: scale(1.1);
@@ -700,26 +722,6 @@ body {
   .hero .btn:hover {
     transform: scale(1.1);
   }
-
-  .footer .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-  }
-
-  .footer .social-links img {
-    width: 50px;
-    height: 50px;
-    padding: 10px;
-    border-radius: 50%;
-    /* background-color: #010729; */
-
-    border: 1px solid rgba(212, 212, 212, 0.571);
-    cursor: pointer;
-  }
-
-  /************************************ Responsiveness Section *************************************/
-  /************************************ Responsiveness Section *************************************/
 
   .skill-box-wrapper:hover::before {
     opacity: 1;
@@ -745,6 +747,8 @@ body {
   }
 }
 
+/************************************ Responsiveness Section *************************************/
+/************************************ Responsiveness Section *************************************/
 @media (min-width: 1600px) {
   .hero {
     min-height: 600px;
@@ -871,7 +875,7 @@ body {
   .nav-ul {
     display: none;
     flex-direction: column;
-    background-color: #d1d8be;
+    background-color: #010729;
     position: absolute;
     top: 60px;
     width: 200px;
@@ -880,6 +884,7 @@ body {
     right: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     gap: 15px;
+    border: 1px solid #2c3e50;
   }
 
   .nav-ul.show {
@@ -902,7 +907,7 @@ body {
   }
 
   .hero-content h1 {
-    font-size: clamp(45px, 7vw, 50px) !important;
+    font-size: clamp(42px, 7vw, 50px) !important;
     padding-right: 0;
   }
 
@@ -986,6 +991,15 @@ body {
 }
 
 @media (max-width: 576px) {
+  .hero-content {
+    padding-left: 10px !important;
+  }
+
+  .hero-content,
+  .hero-container {
+    padding-right: 0 !important;
+  }
+
   .skills-section {
     padding: 90px 5px 60px 5px;
   }
