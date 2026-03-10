@@ -280,7 +280,7 @@ contactForm.addEventListener("submit", async (e) => {
     message: data.get("message"),
   };
 
-  const sendForm = await fetch("/contact", {
+  const sendForm = await fetch("/api/server", {
     method: "post",
     headers: {
       "Content-Type": "application/json",

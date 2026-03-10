@@ -1,13 +1,12 @@
 require("dotenv").config();
-const express = require("express");
-const app = express();
+
 const nodemailer = require("nodemailer");
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.static(__dirname));
+module.exports = async (req, res) => {
+  if (req.method !== "POST") {
+    return res.status(405).send("Method Not Allowed");
+  }
 
-app.post("/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
   const transporter = nodemailer.createTransport({
@@ -34,8 +33,4 @@ app.post("/contact", async (req, res) => {
     res.status(500).send({ status: false, message: "Error Sending Mail❌" });
     console.log("Error Sending Mail❌:", e);
   }
-});
-
-app.listen(3000, () => {
-  console.log("listening on port 3000");
-});
+};
