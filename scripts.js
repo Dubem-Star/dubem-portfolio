@@ -263,3 +263,41 @@ window.addEventListener("scroll", () => {
 
   bttCont.classList.toggle("show", isBottom && isScreenCalm);
 });
+
+// **********CONTACT API SECTION*****************
+// **********CONTACT API SECTION*****************
+const contactForm = document.getElementById("contactForm");
+contactForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const loading = document.getElementById("loading");
+  loading.classList.add("show");
+  const data = new FormData(contactForm);
+
+  const contactData = {
+    name: data.get("name"),
+    email: data.get("email"),
+    message: data.get("message"),
+  };
+
+  const sendForm = await fetch("/contact", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(contactData),
+  });
+
+  const response = await sendForm.json();
+  if (response.status) {
+    contactForm.reset();
+    const contactStatus = document.getElementById("contactStatus");
+    loading.classList.remove("show");
+    contactStatus.classList.add("show");
+    setTimeout(() => {
+      contactStatus.classList.remove("show");
+    }, 4000);
+  } else {
+    console.log(response.message);
+  }
+});

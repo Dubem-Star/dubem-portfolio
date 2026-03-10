@@ -17,7 +17,7 @@
       sizes="120x120"
     />
 
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="./manifest.json" />
 
     <!-- ***************Bootstrap CSS *************-->
     <link
@@ -184,10 +184,17 @@
                   A high-end digital presence for a professional photographer,
                   focusing on a minimalist, "analog-soul" aesthetic.
                 </p>
+
                 <a
                   href="https://dubem-star.github.io/90s-VISUALS/"
                   target="_blank"
                   class="btn"
+                  >View Project</a
+                >
+                <a
+                  href="https://dubem-star.github.io/90s-VISUALS/"
+                  target="_blank"
+                  class="btn fake"
                   >View Project</a
                 >
               </div>
@@ -211,6 +218,12 @@
                 <a href="https://dubem-star.github.io/quizz-app/" class="btn"
                   >View Project</a
                 >
+
+                <a
+                  href="https://dubem-star.github.io/quizz-app/"
+                  class="btn fake"
+                  >View Project</a
+                >
               </div>
             </div>
 
@@ -223,14 +236,22 @@
                 />
               </div>
               <div class="description">
-                <h3>To-do list app</h3>
+                <h3>Productivity Suite</h3>
                 <p>
                   A productivity tool designed to help users organize daily
                   tasks with a focus on simplicity and efficiency.
                 </p>
+
                 <a
                   href="https://dubem-star.github.io/to-do-list-app/"
                   class="btn"
+                  target="_blank"
+                  >View Project</a
+                >
+
+                <a
+                  href="https://dubem-star.github.io/to-do-list-app/"
+                  class="btn fake"
                   target="_blank"
                   >View Project</a
                 >
@@ -252,9 +273,17 @@
                   A full-scale digital storefront for an emerging clothing
                   brand, Sworv Clothings.
                 </p>
+
                 <a
                   href="https://sworv-ng.onrender.com/"
                   class="btn"
+                  target="_blank"
+                  >View Project</a
+                >
+
+                <a
+                  href="https://sworv-ng.vercel.app/"
+                  class="btn fake"
                   target="_blank"
                   >View Project</a
                 >
@@ -293,9 +322,6 @@
               turn complex ideas into maintainable, user-friendly websites.
             </p>
 
-            <!-- I bridge aesthetic design and robust architecture, ensuring projects are as scalable under the hood as they are intuitive on the surface.
-Check out my portfolio to see what I’ve been building. -->
-
             <p>
               I bridge the gap between aesthetic design and robust architecture,
               ensuring that every project is as scalable under the hood as it is
@@ -327,7 +353,7 @@ Check out my portfolio to see what I’ve been building. -->
           Ready to get started? Feel free to reach out through the contact form,
           let's build the future together
         </p>
-        <form class="contact-form">
+        <form class="contact-form" id="contactForm">
           <input type="text" name="name" placeholder="Your Name:" required />
           <input type="email" name="email" placeholder="Your Email:" required />
           <textarea
@@ -336,10 +362,23 @@ Check out my portfolio to see what I’ve been building. -->
             placeholder="Your Message:"
             required
           ></textarea>
-          <button class="btn global-gradient-buttonbg" type="submit">
-            Send Message
-          </button>
+          <button class="btn" type="submit">Send Message</button>
         </form>
+
+        <div
+          id="loading"
+          class="spinner-border loading text-primary mt-5 position-absolute opacity-0 invisible"
+          style="z-index: 9999; bottom: 30px"
+          role="status"
+        ></div>
+
+        <p
+          class="status position-absolute opacity-0 invisible text-light p-2 bg-success"
+          id="contactStatus"
+        >
+          Form submitted successfully. Expect a feedback as soon as possible
+          <img src="media/site_icon/checkmark.png" class="ps-1" />
+        </p>
       </section>
     </div>
 
