@@ -1,7 +1,8 @@
 const hamburger = document.getElementById("hamburger");
 const navUl = document.getElementById("navLinks");
+const overlay = document.getElementById("overlay");
 const sections = document.querySelectorAll("section, header");
-const navLinks = document.querySelectorAll(".nav-ul li a");
+const navLinks = document.querySelectorAll(".gen-nav-link li a");
 const heroSection = document.getElementById("heroContent");
 const heroSectionContainer = document.getElementById("home");
 const navbar = document.getElementById("navbar");
@@ -67,8 +68,17 @@ const skills = [
 
 // ****************Hamburger Logic**********************
 // ****************Hamburger Logic**********************
+
+const menu = hamburger.innerHTML;
 hamburger.addEventListener("click", () => {
   navUl.classList.toggle("show");
+  overlay.classList.toggle("show");
+  navUl.classList.contains("show")
+    ? (hamburger.innerHTML =
+        "<img class='w-100' src='media/site_icon/close (1).png' />")
+    : (hamburger.innerHTML = menu);
+
+  console.log(navUl);
 });
 
 // ****************Scroll Navbar Shadow Logic**********************

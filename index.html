@@ -62,6 +62,27 @@
     <link rel="stylesheet" href="app.css" />
   </head>
   <body>
+    <ul class="nav-ul-sidebar gen-nav-link" id="navLinks">
+      <li><a href="home">Home</a></li>
+      <li><a href="skills">Skills</a></li>
+      <li><a href="projects">Projects</a></li>
+      <li><a href="about">About</a></li>
+      <li><a href="contact">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <img class="w-100" src="media/site_icon/menu.png" alt="" />
+    </div>
+    <div
+      class="overlay position-fixed opacity-0 invisible"
+      id="overlay"
+      style="
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: opacity 0.3s ease-in-out;
+        z-index: 2000;
+        inset: 0;
+      "
+    ></div>
+
     <div class="btt-container d-flex justify-content-center align-items-center">
       <img src="media/site_icon/up-arrow.png" />
     </div>
@@ -79,8 +100,8 @@
                 title="dubby_icon"
             /></a>
           </div>
-          <div class="hamburger" id="hamburger">&#9776;</div>
-          <ul class="nav-ul" id="navLinks">
+
+          <ul class="nav-ul gen-nav-link">
             <li><a href="home">Home</a></li>
             <li><a href="skills">Skills</a></li>
             <li><a href="projects">Projects</a></li>
