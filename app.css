@@ -948,9 +948,8 @@ body {
     right: -300px;
     top: 0;
     box-shadow: -4px 0 12px #00b8934d;
-    border: 1px solid #2c3e50;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border: none !important;
+    gap: 40px !important;
     z-index: 9000 !important;
     transition:
       right 0.2s ease-in-out,
@@ -965,7 +964,7 @@ body {
   }
 
   .nav-ul-sidebar li a {
-    font-size: clamp(16px, 3vw, 18px);
+    font-size: clamp(15px, 3.8vw, 18px);
   }
 
   .nav-ul-sidebar.show {
