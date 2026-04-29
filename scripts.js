@@ -9,6 +9,7 @@ const navbar = document.getElementById("navbar");
 const skillsContainer = document.getElementById("skills");
 const navBrand = document.getElementById("navBrand");
 const viewProjectBtn = document.getElementById("viewProjectBtn");
+const projectsContainer = document.getElementById("projectsContainer");
 
 const skills = [
   {
@@ -273,6 +274,85 @@ window.addEventListener("scroll", () => {
 
   bttCont.classList.toggle("show", isBottom && isScreenCalm);
 });
+
+// **********PROJECTS LOGIC SECTION*****************
+// **********PROJECTS LOGIC SECTION*****************
+
+const projects = [
+  {
+    name: "Clockaholic",
+    description:
+      "A digital e-commerce wrist watch and accessory store for genuine affordable luxury items from global brands.",
+    link: "https://dubem-star.github.io/CLOCKAHOLIC/",
+    previewImg: "media/page_snapshots/clockaholic.png",
+  },
+
+  {
+    name: "90s Visuals",
+    description:
+      "A digital portfolio for a professional photographer, a collection of moments and stories captured through the lens.",
+    link: "https://90svisuals.vercel.app/",
+    previewImg: "media/page_snapshots/90's_visuals_project.png",
+  },
+
+  {
+    name: "Dubby's Quizz App",
+    description:
+      "An interactive, multi-stage educational application designed to test and track user knowledge.",
+    link: "https://dubem-star.github.io/quizz-app/",
+    previewImg: "media/page_snapshots/dubby_quizz_app.png",
+  },
+
+  {
+    name: "Sworv Clothings",
+    description:
+      " A full-scale digital storefront for an emerging clothing brand, Sworv Clothings.",
+    link: "https://sworv-ng.onrender.com/",
+    previewImg: "media/page_snapshots/sworv_shop_page.png",
+  },
+];
+
+for (let project of projects) {
+  const projectCard = document.createElement("div");
+  projectCard.classList.add(
+    "col-sm-12",
+    "col-md-6",
+    "col-xl-3",
+    "col-lg-6",
+    "project-card",
+  );
+  projectCard.innerHTML = `
+  
+     <div class="img-cont">
+                <img
+                  src=${project.previewImg}
+                  title=${project.name}
+                />
+              </div>
+              <div class="description">
+                <h3>${project.name}</h3>
+                <p>
+                  ${project.description}
+                </p>
+
+                <a
+                  href=${project.link}
+                  target="_blank"
+                  class="btn"
+                  >View Project</a
+                >
+                <a
+                  href=${project.link}
+                  target="_blank"
+                  class="btn fake"
+                  >View Project</a
+                >
+              </div>
+  
+  `;
+
+  projectsContainer.appendChild(projectCard);
+}
 
 // **********CONTACT API SECTION*****************
 // **********CONTACT API SECTION*****************
