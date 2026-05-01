@@ -407,20 +407,29 @@ viewMore.addEventListener("click", () => {
   const isExpanded = projectsContainer.classList.contains("expand");
 
   const isMobile = window.innerWidth <= 1100 && window.innerWidth > 720;
+  const isPhone = window.innerWidth <= 570;
 
   setTimeout(() => {
     if (isExpanded) {
       const fifthCardDown = document.querySelector(
         `.project-card:nth-child(${isMobile ? 3 : 5})`,
       );
-      fifthCardDown.scrollIntoView({ behavior: "smooth", block: "start" });
+      fifthCardDown.scrollIntoView({ behavior: "smooth", block: "center" });
     } else {
-      projectsContainer.scrollIntoView({
-        behavior: "smooth",
-        block: `${isMobile ? "center" : "start"}`,
-      });
+      if (isPhone) {
+        const forthCard = document.querySelector(`.project-card:nth-child(4)`);
+        forthCard.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      } else {
+        projectsContainer.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
     }
-  }, 200);
+  }, 150);
   viewMoreBtn.innerHTML = isExpanded ? "View Less" : "View More";
 });
 
