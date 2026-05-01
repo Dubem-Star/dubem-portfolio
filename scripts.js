@@ -10,6 +10,7 @@ const skillsContainer = document.getElementById("skills");
 const navBrand = document.getElementById("navBrand");
 const viewProjectBtn = document.getElementById("viewProjectBtn");
 const projectsContainer = document.getElementById("projectsContainer");
+const projectWrapper = document.getElementById("projectWrapper");
 
 const skills = [
   {
@@ -285,6 +286,7 @@ const projects = [
       "A digital e-commerce wrist watch and accessory store for genuine affordable luxury items from global brands.",
     link: "https://dubem-star.github.io/CLOCKAHOLIC/",
     previewImg: "media/page_snapshots/clockaholic.png",
+    sourceCodeLink: "https://github.com/Dubem-Star/CLOCKAHOLIC",
   },
 
   {
@@ -293,14 +295,16 @@ const projects = [
       "A digital portfolio for a professional photographer, a collection of moments and stories captured through the lens.",
     link: "https://90svisuals.vercel.app/",
     previewImg: "media/page_snapshots/90's_visuals_project.png",
+    sourceCodeLink: "https://github.com/Dubem-Star/90s-VISUALS",
   },
 
   {
-    name: "Dubby's Quizz App",
+    name: "Dubflix",
     description:
-      "An interactive, multi-stage educational application designed to test and track user knowledge.",
-    link: "https://dubem-star.github.io/quizz-app/",
-    previewImg: "media/page_snapshots/dubby_quizz_app.png",
+      "Dubflix is a Netflix inspired web application that showcases movies in a modern and responsive interface.",
+    link: "https://dubflix-one.vercel.app/",
+    previewImg: "media/page_snapshots/dubflix.png",
+    sourceCodeLink: "https://github.com/Dubem-Star/DUBFLIX",
   },
 
   {
@@ -309,6 +313,25 @@ const projects = [
       " A full-scale digital storefront for an emerging clothing brand, Sworv Clothings.",
     link: "https://sworv-ng.onrender.com/",
     previewImg: "media/page_snapshots/sworv_shop_page.png",
+    sourceCodeLink: "https://github.com/Dubem-Star/SWORV.NG",
+  },
+
+  {
+    name: "The Duizz App",
+    description:
+      "An interactive, multi-stage educational application designed to test and track user knowledge.",
+    link: "https://dubem-star.github.io/quizz-app/",
+    previewImg: "media/page_snapshots/dubby_quizz_app.png",
+    sourceCodeLink: "  https://github.com/Dubem-Star/quizz-app",
+  },
+
+  {
+    name: "Dubby's To-do App",
+    description:
+      "A simple, web-based To-Do List app built with HTML, CSS, and JavaScript.",
+    link: "https://dubem-star.github.io/to-do-list-app/",
+    previewImg: "media/page_snapshots/todo_list_screenshot.png",
+    sourceCodeLink: "https://github.com/Dubem-Star/to-do-list-app",
   },
 ];
 
@@ -338,14 +361,23 @@ for (let project of projects) {
                 <a
                   href=${project.link}
                   target="_blank"
-                  class="btn"
+                  class="btn view"
                   >View Project</a
                 >
                 <a
                   href=${project.link}
                   target="_blank"
-                  class="btn fake"
+                  class="btn fake view"
                   >View Project</a
+                >
+
+                    <a
+                  href=${project.sourceCodeLink}  
+                  target="_blank"
+                  class="git fake view d-flex justify-content-center align-items-center w-25"
+                  >
+                  <img src="media/site_icon/github.png"  />
+                  </a
                 >
               </div>
   
@@ -353,6 +385,44 @@ for (let project of projects) {
 
   projectsContainer.appendChild(projectCard);
 }
+
+const viewMoreBtn = document.createElement("button");
+viewMoreBtn.classList.add(
+  "btn",
+  "position-static",
+  "view",
+  "fake",
+  "w-auto",
+  "mt-4",
+  "fs-6",
+  "vm-btn",
+);
+viewMoreBtn.id = "viewMoreBtn";
+viewMoreBtn.innerHTML = "View More";
+projectWrapper.appendChild(viewMoreBtn);
+
+const viewMore = document.getElementById("viewMoreBtn");
+viewMore.addEventListener("click", () => {
+  projectsContainer.classList.toggle("expand");
+  const isExpanded = projectsContainer.classList.contains("expand");
+
+  const isMobile = window.innerWidth <= 1100 && window.innerWidth > 720;
+
+  setTimeout(() => {
+    if (isExpanded) {
+      const fifthCardDown = document.querySelector(
+        `.project-card:nth-child(${isMobile ? 3 : 5})`,
+      );
+      fifthCardDown.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      projectsContainer.scrollIntoView({
+        behavior: "smooth",
+        block: `${isMobile ? "center" : "start"}`,
+      });
+    }
+  }, 200);
+  viewMoreBtn.innerHTML = isExpanded ? "View Less" : "View More";
+});
 
 // **********CONTACT API SECTION*****************
 // **********CONTACT API SECTION*****************
