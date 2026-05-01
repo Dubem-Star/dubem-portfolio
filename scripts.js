@@ -429,7 +429,7 @@ viewMore.addEventListener("click", () => {
         });
       }
     }
-  }, 150);
+  }, 20);
   viewMoreBtn.innerHTML = isExpanded ? "View Less" : "View More";
 });
 
