@@ -30,6 +30,11 @@ body {
   --columns-2: 2;
 }
 
+::selection {
+  background-color: #010729;
+  color: white;
+}
+
 /*******************Global Gradient********************/
 /*******************Global Gradient********************/
 

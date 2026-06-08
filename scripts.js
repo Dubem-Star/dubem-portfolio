@@ -311,7 +311,7 @@ const projects = [
     name: "Sworv Clothings",
     description:
       " A full-scale digital storefront for an emerging clothing brand, Sworv Clothings.",
-    link: "https://sworv-ng.onrender.com/",
+    link: "https://sworv-ng.vercel.app/",
     previewImg: "media/page_snapshots/sworv_shop_page.png",
     sourceCodeLink: "https://github.com/Dubem-Star/SWORV.NG",
   },
