@@ -346,11 +346,13 @@ for (let project of projects) {
   );
   projectCard.innerHTML = `
   
-     <div class="img-cont"  onclick="window.open('${project.link}', '_blank')" >
+     <div class="img-cont"  >
+     <a href=${project.link} target="_blank" >
                 <img
                   src=${project.previewImg}
                   title=${project.name}
                 />
+                </a>
               </div>
               <div class="description">
                 <h3>${project.name}</h3>
