@@ -284,7 +284,7 @@ const projects = [
     name: "Clockaholic",
     description:
       "A digital e-commerce wrist watch and accessory store for genuine affordable luxury items from global brands.",
-    link: "https://dubem-star.github.io/CLOCKAHOLIC/",
+    link: "https://clockaholic-store.vercel.app/",
     previewImg: "media/page_snapshots/clockaholic.png",
     sourceCodeLink: "https://github.com/Dubem-Star/CLOCKAHOLIC",
   },
@@ -346,7 +346,7 @@ for (let project of projects) {
   );
   projectCard.innerHTML = `
   
-     <div class="img-cont">
+     <div class="img-cont"  onclick="window.open('${project.link}', '_blank')" >
                 <img
                   src=${project.previewImg}
                   title=${project.name}
@@ -360,20 +360,20 @@ for (let project of projects) {
 
                 <a
                   href=${project.link}
-                  target="_blank"
+                 
                   class="btn view"
                   >View Project</a
                 >
                 <a
                   href=${project.link}
-                  target="_blank"
+                 
                   class="btn fake view"
                   >View Project</a
                 >
 
                     <a
                   href=${project.sourceCodeLink}  
-                  target="_blank"
+                 
                   class="git fake view d-flex justify-content-center align-items-center w-25"
                   >
                   <img src="media/site_icon/github.png"  />
