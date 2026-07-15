@@ -402,7 +402,7 @@ viewMoreBtn.classList.add(
   "view",
   "fake",
   "w-auto",
-  "mt-4",
+
   "fs-6",
   "vm-btn",
 );

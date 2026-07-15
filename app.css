@@ -852,6 +852,14 @@ body {
   }
 }
 
+.vm-btn {
+  margin-top: 25px !important;
+}
+
+.projects-container .mini.expand ~ .vm-btn {
+  margin-top: 35px !important;
+}
+
 /************************************ Responsiveness Section *************************************/
 /************************************ Responsiveness Section *************************************/
 @media (min-width: 1600px) {
@@ -889,6 +897,10 @@ body {
     width: 100%;
     column-gap: clamp(10px, 4vw + 4px, 20px);
     flex-wrap: wrap;
+  }
+
+  .vm-btn {
+    margin-top: -5px !important;
   }
 
   .project-card {
@@ -1125,11 +1137,12 @@ body {
   }
 
   .vm-btn {
-    margin-top: 0 !important;
+    margin-top: -50px !important;
   }
 
   .projects-container .mini.expand .project-card:last-child {
-    margin-bottom: 35px !important;
+    align-self: center;
+    justify-self: center;
   }
 }
 
