@@ -953,7 +953,7 @@ body {
   .about-content .about-text {
     order: 1 !important;
     text-align: center;
-    /* width: 100%; */
+    margin-top: 20px;
     width: clamp(320px, 85vw, 700px);
   }
 
@@ -1115,6 +1115,7 @@ body {
   .section-brief-intro {
     max-width: clamp(55%, 85vw, 90%);
     font-weight: 500;
+    font-size: 15px;
   }
 
   .skill-box .skill-box-description {
