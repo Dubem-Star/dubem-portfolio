@@ -299,12 +299,12 @@ const projects = [
   },
 
   {
-    name: "Dubflix",
+    name: "Santos Collection",
     description:
-      "Dubflix is a Netflix inspired web application that showcases movies in a modern and responsive interface.",
-    link: "https://dubflix-one.vercel.app/",
-    previewImg: "media/page_snapshots/dubflix.png",
-    sourceCodeLink: "https://github.com/Dubem-Star/DUBFLIX",
+      "Santos Collection is a luxury womenswear brand defined by elegance, confidence, and refined style.",
+    link: "https://santos-collection.vercel.app/",
+    previewImg: "media/page_snapshots/santos_collection.png",
+    sourceCodeLink: "https://github.com/Dubem-Star/SANTOS-COLLECTION",
   },
 
   {
@@ -324,7 +324,14 @@ const projects = [
     previewImg: "media/page_snapshots/dubby_quizz_app.png",
     sourceCodeLink: "  https://github.com/Dubem-Star/quizz-app",
   },
-
+  {
+    name: "Dubflix",
+    description:
+      "Dubflix is a Netflix inspired web application that showcases movies in a modern and responsive interface.",
+    link: "https://dubflix-one.vercel.app/",
+    previewImg: "media/page_snapshots/dubflix.png",
+    sourceCodeLink: "https://github.com/Dubem-Star/DUBFLIX",
+  },
   {
     name: "Dubby's To-do App",
     description:
