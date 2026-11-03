@@ -299,6 +299,15 @@ const projects = [
   },
 
   {
+    name: "Dubugger",
+    description:
+      "Dubugger is an AI-powered debugging assistant built to help developers troubleshoot, explain, and resolve code errors instantly.",
+    link: "https://dubugger.vercel.app/",
+    previewImg: "media/page_snapshots/dubugger.png",
+    sourceCodeLink: "https://github.com/Dubem-Star/DUBUGGER",
+  },
+
+  {
     name: "Santos Collection",
     description:
       "Santos Collection is a luxury womenswear brand defined by elegance, confidence, and refined style.",
@@ -354,7 +363,7 @@ for (let project of projects) {
   projectCard.innerHTML = `
   
      <div class="img-cont"  >
-     <a href=${project.link} target="_blank" >
+     <a href=${project.link} target="_blank" rel="noopener noreferrer" >
                 <img
                   src=${project.previewImg}
                   title=${project.name}
@@ -375,7 +384,7 @@ for (let project of projects) {
                 >
                 <a
                   href=${project.link}
-                 
+                 target="_blank" rel="noopener noreferrer"
                   class="btn fake view"
                   >View Project</a
                 >
@@ -402,7 +411,6 @@ viewMoreBtn.classList.add(
   "view",
   "fake",
   "w-auto",
-
   "fs-6",
   "vm-btn",
 );
